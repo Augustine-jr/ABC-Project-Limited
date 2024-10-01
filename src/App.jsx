@@ -1,11 +1,24 @@
-import React from 'react'        // Import React library to use JSX and build components
-import { Routes, Route } from 'react-router-dom'   // Import Routes and Route to handle navigation
+import React from 'react';        // Import React library to use JSX and build components
+import { Routes, Route } from 'react-router-dom';   // Import Routes and Route to handle navigation
+import Home from './pages/Home';
+import Collection from './pages/Material';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Product from './pages/Product';
+import Cart from './pages/Cart';
+import Login from './pages/Login';
+import PlaceOrder from './pages/PlaceOrder';
+import Orders from './pages/Orders';
+import NotFound from './pages/NotFound';
+import Navbar from './components/Navbar';
+import Material from './pages/Material';
 
 // Define the main App component
 const App = () => {
   return (
     // Apply responsive padding with Tailwind CSS
     <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <Navbar />
 
       {/* Routes container to handle different URL paths */}
       <Routes>
@@ -13,7 +26,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         
         {/* Define other routes for different pages */}
-        <Route path='/collections' element={<Collections />} />
+        <Route path='/materials' element={<Material />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/products/:productId' element={<Product />} />  {/* productId is dynamic */}
