@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Telegraf', sans-serif;
+}
+
 a.active hr {
   display: block;
 }

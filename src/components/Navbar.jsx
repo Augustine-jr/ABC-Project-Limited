@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center py-5 font-medium'>
+    <div className='flex justify-between items-center py-5 font-bold'>
       
-      <img src={assets.ABC_Logo} alt="ABC Logo" className='w-40' />
+    <img src={assets.ABC_Logo} alt="ABC Logo" className='w-40' />
   
       <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
         
@@ -33,6 +33,7 @@ const Navbar = () => {
       </ul>
 
       <div className='flex items-center gap-6'></div>
+         <img src={assets.search_icon} alt="Search Icon" className='w-5' />
     </div>
   )
 }
