@@ -1,7 +1,7 @@
 import React from 'react';        // Import React library to use JSX and build components
 import { Routes, Route } from 'react-router-dom';   // Import Routes and Route to handle navigation
 import Home from './pages/Home';
-import Collection from './pages/Material';
+import Material from './pages/Material';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Product from './pages/Product';
@@ -11,14 +11,15 @@ import PlaceOrder from './pages/PlaceOrder';
 import Orders from './pages/Orders';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
-import Material from './pages/Material';
+
 
 // Define the main App component
 const App = () => {
   return (
-    // Apply responsive padding with Tailwind CSS
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div>
+
       <Navbar />
+      <div className={'px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]  bg-white text-gray-900'}>
 
       {/* Routes container to handle different URL paths */}
       <Routes>
@@ -38,6 +39,8 @@ const App = () => {
         {/* Catch-all route for any undefined paths */}
         <Route path='*' element={<NotFound />} />
       </Routes>
+    </div>    
+    {/* Apply responsive padding with Tailwind CSS */}
       
     </div>
   )
