@@ -4,6 +4,8 @@ import search_icon from './search_icon.svg';
 import profile_icon from './profile_icon.svg';
 import pickuptruck_icon from './pickuptruck_icon.svg';
 import menu_icon from './menu_icon.svg';
+import backarrow_icon from './backarrow_icon.svg';
+import cancel_icon from './cancel_icon.svg';
 
 
 export const assets = {
@@ -12,7 +14,9 @@ export const assets = {
     search_icon,
     profile_icon,
     pickuptruck_icon,
-    menu_icon
+    menu_icon,
+    backarrow_icon,
+    cancel_icon
 }
 
 

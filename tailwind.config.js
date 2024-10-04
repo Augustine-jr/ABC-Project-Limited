@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionTimingFunction: {
+        'custom-bezier': 'cubic-bezier(0.25, 0.8, 0.25, 1)', // Custom easing
+      }
+    },
   },
   plugins: [],
 }
