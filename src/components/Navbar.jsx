@@ -87,7 +87,7 @@ const Navbar = () => {
 
       {/* Sidebar menu for smaller screens (when hamburger menu is clicked) */}
       <div className={`absolute top-0 right-0 overflow-hidden bg-[#d1c7a3] duration-700 transition-all ${visible ? 'w-[55%]' : 'w-0'} h-1/2`}>
-        <div className="flex flex-col text-gray-700">
+        <div className="flex flex-col text-gray-600">
           {/* Back Button  to close the sidebar menu */}
           <div onClick={() => {
             setVisible(false); // close the sidebar menu
@@ -100,7 +100,10 @@ const Navbar = () => {
 
           {/* Sidebar Menu Links with animations */}
           {/* Home Link in Sidebar */}
-          <NavLink
+          <NavLink onClick={() => {
+            setVisible(false);
+            setMenuActive(false);
+          }}
             to="/"
             className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
@@ -111,7 +114,10 @@ const Navbar = () => {
           </NavLink>
 
           {/* Materials Link in Sidebar */}
-          <NavLink
+          <NavLink onClick={() => {
+            setVisible(false);
+            setMenuActive(false);
+          }}
             to="/materials"
             className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
@@ -122,7 +128,10 @@ const Navbar = () => {
           </NavLink>
 
           {/* About Link in Sidebar */}
-          <NavLink
+          <NavLink onClick={() => {
+            setVisible(false);
+            setMenuActive(false);
+          }}
             to="/about"
             className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
@@ -133,7 +142,10 @@ const Navbar = () => {
           </NavLink>
 
           {/* Contact Link in Sidebar */}
-          <NavLink
+          <NavLink onClick={() => {
+            setVisible(false);
+            setMenuActive(false);
+          }}
             to="/contact"
             className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
