@@ -39,3 +39,4 @@ const ShopContextProvider = (props) => {
 
 // 8. Export the ShopContextProvider component so other parts of the app can use it.
 export default ShopContextProvider;
+ 
