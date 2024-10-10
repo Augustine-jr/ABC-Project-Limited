@@ -48,3 +48,9 @@ a.active hr {
   transition-duration: 400ms;
   transition-property: width, left;
 }
+
+@media (max-width: 768px) {
+  a.active {
+    background-color: #ebe6d7;
+  }
+}

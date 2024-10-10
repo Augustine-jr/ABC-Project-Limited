@@ -11,7 +11,8 @@ const ProductItem = ({id, image, name, price}) => {
   // This is the UI for a product, showing its image, name, and price
   return (
     // 'Link' component makes the product clickable and sends the user to the product details page using the product id
-    <Link className='text-gray-700 cursor-pointer' to={`/product/${id}`}>
+    <Link className='text-gray-700 cursor-pointer' to={`/products/${id}`}>
+
       {/* Container for the image with hidden overflow */}
       <div className='overflow-hidden'>
          {/* Product image with a hover effect that makes it zoom in slightly */}
@@ -20,9 +21,10 @@ const ProductItem = ({id, image, name, price}) => {
       {/* Displaying the product name below the image */}
       <p className='pt-3 pb-1 text-sm'>{name}</p>
       {/* Displaying the price with the currency symbol */}
-      <p className='text-sm font-medium'>{currency}{price}</p>
-    </Link>
+      <p className='text-sm font-medium' style={{ color: 'rgb(100, 88, 50)'}}>{currency}{price}</p>
+    </Link> 
   )
 }
+
 
 export default ProductItem

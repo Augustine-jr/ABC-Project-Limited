@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <div className="flex justify-between w-full items-center py-5 px-6 font-bold bg-[#ebe6d7] text-gray-700">
       {/* Logo: Displays the logo of the website */}
-      <img src={assets.ABC_Logo} alt="ABC Logo" className="w-20 md:w-40" />
+      <Link to='/'><img src={assets.ABC_Logo} alt="ABC Logo" className="w-20 md:w-40" /></Link>
 
       {/* Desktop Menu Links (visible only on large screens) */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
