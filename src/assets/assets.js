@@ -21,10 +21,9 @@ export const assets = {
     placeholder_icon,
  };
 
-
 export const products = [
      {
-        _id: "",
+        _id: "w001",
         name: "",
         description: "",
         price: 3000,
@@ -36,7 +35,7 @@ export const products = [
         bestseller: true
     },
     {
-        _id: "",
+        _id: "w002",
         name: "",
         description: "",
         price: 3000,
@@ -48,7 +47,7 @@ export const products = [
         bestseller: true
     },
     {
-        _id: "",
+        _id: "w003",
         name: "",
         description: "",
         price: 3000,
@@ -60,7 +59,7 @@ export const products = [
         bestseller: true
     },
     {
-        _id: "",
+        _id: "w004",
         name: "",
         description: "",
         price: 3000,
@@ -72,7 +71,7 @@ export const products = [
         bestseller: true
     },
     {
-        _id: "",
+        _id: "w005",
         name: "",
         description: "",
         price: 3000,
@@ -84,7 +83,7 @@ export const products = [
         bestseller: true
     },
     {
-        _id: "",
+        _id: "w006",
         name: "",
         description: "",
         price: 3000,
@@ -96,7 +95,7 @@ export const products = [
         bestseller: true
     },
     {
-        _id: "",
+        _id: "n001",
         name: "",
         description: "",
         price: 3000,
@@ -108,7 +107,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n002",
         name: "",
         description: "",
         price: 3000,
@@ -120,7 +119,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n003",
         name: "",
         description: "",
         price: 3000,
@@ -132,7 +131,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n004",
         name: "",
         description: "",
         price: 3000,
@@ -144,7 +143,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n005",
         name: "",
         description: "",
         price: 3000,
@@ -156,7 +155,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n006",
         name: "",
         description: "",
         price: 3000,
@@ -168,7 +167,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w007",
         name: "",
         description: "",
         price: 3000,
@@ -180,7 +179,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w008",
         name: "",
         description: "",
         price: 3000,
@@ -192,7 +191,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w009",
         name: "",
         description: "",
         price: 3000,
@@ -204,7 +203,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w010",
         name: "",
         description: "",
         price: 3000,
@@ -216,7 +215,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w011",
         name: "",
         description: "",
         price: 3000,
@@ -228,7 +227,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n007",
         name: "",
         description: "",
         price: 3000,
@@ -240,7 +239,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n008",
         name: "",
         description: "",
         price: 3000,
@@ -252,7 +251,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n009",
         name: "",
         description: "",
         price: 3000,
@@ -264,7 +263,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "n010",
         name: "",
         description: "",
         price: 3000,
@@ -276,7 +275,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w012",
         name: "",
         description: "",
         price: 3000,
@@ -288,7 +287,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w013",
         name: "",
         description: "",
         price: 3000,
@@ -300,7 +299,7 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w014",
         name: "",
         description: "",
         price: 3000,
@@ -312,7 +311,43 @@ export const products = [
         bestseller: false
     },
     {
-        _id: "",
+        _id: "w015",
+        name: "",
+        description: "",
+        price: 3000,
+        image: [placeholder_icon],
+        category: "",
+        subCategory: "",
+        sizes: [],
+        date: 4,
+        bestseller: false
+    },
+    {
+        _id: "w016",
+        name: "",
+        description: "",
+        price: 3000,
+        image: [placeholder_icon],
+        category: "",
+        subCategory: "",
+        sizes: [],
+        date: 4,
+        bestseller: false
+    },
+    {
+        _id: "w017",
+        name: "",
+        description: "",
+        price: 3000,
+        image: [placeholder_icon],
+        category: "",
+        subCategory: "",
+        sizes: [],
+        date: 4,
+        bestseller: false
+    },
+    {
+        _id: "w018",
         name: "",
         description: "",
         price: 3000,

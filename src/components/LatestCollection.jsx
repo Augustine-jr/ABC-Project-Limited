@@ -19,7 +19,7 @@ const LatestCollection = () => {
   }, [products]) // 'useEffect' will re-run whenever 'products' changes
 
   return (
-    <div className='my-10'>
+    <div className='my-10 border-[#d1c7a3]'>
       {/* Title Section */}
       <div className='text-center py-8 text-3xl'>
         {/* Passing 'LATEST' and 'SUPPLIES' to the 'Title' component to display the section title */}
@@ -32,17 +32,19 @@ const LatestCollection = () => {
 
       {/* Grid Section for displaying products */}
       {/* We create a grid layout to display the products. The number of columns changes based on screen size */}
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-        {
-          // Mapping over the 'latestProducts' array to display each product using the 'ProductItem' component
-          latestProducts.map((item, index) => (
-            // Each 'ProductItem' takes the product's id, image, name, and price as props
-            <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price}/>
-          ))
-        }
+     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-0">
+  {
+    latestProducts.map((item, index) => (
+      <div key={index} className="border border-[#d1c7a3] p-4"> {/* Add border to each item */}
+        <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
       </div>
+    ))
+  }
+</div>
+
     </div>
   );
 }
 
 export default LatestCollection;
+
