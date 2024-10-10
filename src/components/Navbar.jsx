@@ -11,9 +11,15 @@ const Navbar = () => {
 
   // Function to toggle menu visibility and hamburger button state
   const toggleMenu = () => {
+    const newVisibleState = !visible
     setVisible(!visible);  // Toggle the sidebar menu visibility (show/hide)
     setMenuActive(!menuActive); // Toggle the hamburger icon's active state (open/close)
+
+    //Disable scroll when menu is visible, enable whne it's hidden
+  document.body.style.overflow = newVisibleState ? 'hidden' : 'auto';
   };
+
+
 
 
   return (
@@ -86,12 +92,13 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar menu for smaller screens (when hamburger menu is clicked) */}
-      <div className={`absolute top-0 right-0 overflow-hidden bg-[#d1c7a3] duration-700 transition-all ${visible ? 'w-[55%]' : 'w-0'} h-1/2`}>
+      <div className={`absolute top-0 right-0 overflow-hidden bg-inherit  duration-700 transition-all ${visible ? 'w-full' : 'w-0'} h-full`}>
         <div className="flex flex-col text-gray-600">
           {/* Back Button  to close the sidebar menu */}
           <div onClick={() => {
             setVisible(false); // close the sidebar menu
             setMenuActive(false); // set hamburger menu to inactive
+            document.body.style.overflow = 'auto'; // Enable scroll again
           }} className="flex items-center gap-4 p-3 pt-3 cursor-pointer">
             {/* Back Arrow Icon */}
             <img src={assets.backarrow_icon} alt="Back Arrow Icon" className="w-5" />
@@ -103,9 +110,10 @@ const Navbar = () => {
           <NavLink onClick={() => {
             setVisible(false);
             setMenuActive(false);
+            document.body.style.overflow = 'auto';
           }}
             to="/"
-            className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
+            className={`p-3 border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
             }`}
             style={{ transitionDelay: '100ms' }} // Delay for the first link to slide in
@@ -117,9 +125,10 @@ const Navbar = () => {
           <NavLink onClick={() => {
             setVisible(false);
             setMenuActive(false);
+            document.body.style.overflow = 'auto';
           }}
             to="/materials"
-            className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
+            className={`p-3  border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
             }`}
             style={{ transitionDelay: '200ms' }} // Delay for the second link
@@ -131,9 +140,10 @@ const Navbar = () => {
           <NavLink onClick={() => {
             setVisible(false);
             setMenuActive(false);
+            document.body.style.overflow = 'auto';
           }}
             to="/about"
-            className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
+            className={`p-3  border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
             }`}
             style={{ transitionDelay: '300ms' }} // Delay for the third link
@@ -145,9 +155,10 @@ const Navbar = () => {
           <NavLink onClick={() => {
             setVisible(false);
             setMenuActive(false);
+            document.body.style.overflow = 'auto';
           }}
             to="/contact"
-            className={`p-3 hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
+            className={`p-3  border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
             }`}
             style={{ transitionDelay: '400ms' }} // Delay for the fourth link

@@ -19,7 +19,7 @@ const App = () => {
     <div>
 
       <Navbar />
-      <div className={'px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]  bg-inherit text-gray-900'}>
+      <div className={'px-4 sm:px-10 md:px-10 max-w-[1720px] mx-auto  bg-inherit text-gray-900'}>
 
       {/* Routes container to handle different URL paths */}
       <Routes>

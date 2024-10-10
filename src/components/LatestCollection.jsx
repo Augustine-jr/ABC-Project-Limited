@@ -32,10 +32,10 @@ const LatestCollection = () => {
 
       {/* Grid Section for displaying products */}
       {/* We create a grid layout to display the products. The number of columns changes based on screen size */}
-     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-0">
+     <div className="grid grid-cols-2  gap-0">
   {
     latestProducts.map((item, index) => (
-      <div key={index} className="border border-[#d1c7a3] p-4"> {/* Add border to each item */}
+      <div key={index} className="border border-[#d1c7a3]  p-4"> {/* Add border to each item */}
         <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
       </div>
     ))

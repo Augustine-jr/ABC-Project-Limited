@@ -14,9 +14,9 @@ const ProductItem = ({id, image, name, price}) => {
     <Link className='text-gray-700 cursor-pointer' to={`/products/${id}`}>
 
       {/* Container for the image with hidden overflow */}
-      <div className='overflow-hidden'>
+      <div className='overflow-hidden w-full flex justify-center items-center h-40 sm:h-20 lg:h-[30rem] '>
          {/* Product image with a hover effect that makes it zoom in slightly */}
-         <img className='hover:scale-110 transition ease-in-out' src={image[0]} alt="" />
+         <img className='hover:scale-110 transition ease-in-out w-full' src={image[0]} alt=""  />
       </div>
       {/* Displaying the product name below the image */}
       <p className='pt-3 pb-1 text-sm'>{name}</p>
