@@ -15,7 +15,7 @@ const LatestCollection = () => {
   // Using 'useEffect' to update 'latestProducts' whenever 'products' changes
   useEffect(() => {
     // Slicing the first 10 products from the 'products' list and storing them in 'latestProducts'
-    setLatestProducts(products.slice(0, 10));
+    setLatestProducts(products.slice(0, 8));
   }, [products]) // 'useEffect' will re-run whenever 'products' changes
 
   return (
@@ -32,10 +32,10 @@ const LatestCollection = () => {
 
       {/* Grid Section for displaying products */}
       {/* We create a grid layout to display the products. The number of columns changes based on screen size */}
-     <div className="grid grid-cols-2  gap-0">
+     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-0 divide-[#d1c7a3] divide-y md:divide-y-0 border-[#d1c7a3] border-y divide-x">
   {
     latestProducts.map((item, index) => (
-      <div key={index} className="border border-[#d1c7a3]  p-4"> {/* Add border to each item */}
+      <div key={index} className="  p-4"> {/* Add border to each item */}
         <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
       </div>
     ))
