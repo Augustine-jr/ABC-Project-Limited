@@ -8,10 +8,10 @@ import ProductItem from './ProductItem'
 
 const BestSeller = () => {
 
-  // We get all the products from the magic box called ShopContext.
+  // We get all the products from  ShopContext.
   const { products } = useContext(ShopContext);
 
-  // We create an empty box (array) to keep only the best-selling products.
+  // We create an empty array to keep only the best-selling products.
   const [bestSeller, setBestSeller] = useState([]);
 
   // When the page loads, we want to find the best-sellers.
@@ -22,11 +22,15 @@ const BestSeller = () => {
     setBestSeller(bestProduct.slice(0, 4))
   }, [products]) // This happens when the 'products' data changes.
 
+   
+  // Display loading message if products haven't loaded yet
+  if (!products.length) return <p>Loading...</p>;
+
   return (
     <div className='my-10'> {/* Adds space around the section */}
       <div className='text-center text-3xl py-8'> {/* Centered title and some padding */}
        {/* Title component shows "BEST SELLERS" */}
-       <Title text1={'BEST'} text2={'SELLERS'} />
+       <Title text1='BEST' text2='SELLERS' />
        <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base'>
          {/* A small description below the title */}
          These products have sold the most in the past 30 days. You may also want to check out our popular products.
@@ -39,11 +43,15 @@ const BestSeller = () => {
         {
           bestSeller.map((item, index) => (
              <div key={index} className="p-4"> {/* Each product has padding around it */}
-               {/* ProductItem shows the product's picture, name, and price */}
-               <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
+               {/* Render each product with fallback image and name */}
+               <ProductItem 
+               id={item._id} 
+               image={item.image || 'https://via.placeholder.com/150'} // Fallback image 
+               name={item.name || ''}  // Add fallback name to product
+               price={item.price} 
+               />
              </div>
-          ))
-        }
+          ))}
       </div>
     </div>
   )
