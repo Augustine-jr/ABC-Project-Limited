@@ -5,7 +5,7 @@
 
 
 body {
-  font-family: 'Telegraf', sans-serif;
+  font-family: 'Poppins', sans-serif;
       background-color: #ebe6d7;
 
 }
@@ -51,6 +51,6 @@ a.active hr {
 
 @media (max-width: 768px) {
   a.active {
-    background-color: #ebe6d7;
+    background-color: #d1c7a3;
   }
 }
