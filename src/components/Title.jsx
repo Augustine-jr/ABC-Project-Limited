@@ -9,13 +9,13 @@ const Title = ({ text1, text2 }) => {
         - The first part of the title (like 'LATEST') is displayed here.
         - 'text-gray-500' sets the text color to gray.
       */}
-      <p className='text-gray-500'>{text1}</p> 
+      <p className='font-semibold'>{text1}</p> 
 
       {/* 
         - The second part of the title (like 'SUPPLIES') is displayed here, inside a span with bold text style.
         - 'text-gray-700' makes the text slightly darker and 'font-medium' makes it bold.
       */}
-      <p className='text-gray-700 font-medium'>{text2}</p>
+      <p className='font-semibold'>{text2}</p>
 
       {/* 
         - This 'p' element is a horizontal line that appears under the title.

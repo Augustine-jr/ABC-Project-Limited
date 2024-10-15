@@ -11,7 +11,7 @@ const Hero = () => {
             <p className='w-8 md:w-11 h-[2px] bg-[#414141]'></p>
             <p className='font-medium text-xs md:text-sm lg:text-base'>NAIL IT WITH OUR BESTSELLERS</p>
           </div>
-          <h1 className='text-xl sm:text-3xl lg:text-4xl leading-relaxed'>Timber For Every Project</h1>
+          <h1 className='text-xl sm:text-3xl lg:text-4xl leading-relaxed font-semibold'>Timber For Every Project</h1>
           <div className='flex items-center gap-2'>
             <p className='font-semibold text-xs md:text-sm lg:text-base'>SHOP THE TOOLS YOU NEED</p>
             <p className='w-8 md:w-11 h-[2px] bg-[#414141]'></p>

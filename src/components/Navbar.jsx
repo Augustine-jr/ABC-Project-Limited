@@ -15,7 +15,7 @@ const Navbar = () => {
     setVisible(!visible);  // Toggle the sidebar menu visibility (show/hide)
     setMenuActive(!menuActive); // Toggle the hamburger icon's active state (open/close)
 
-    //Disable scroll when menu is visible, enable whne it's hidden
+    //Disable scroll when menu is visible, enable when it's hidden
   document.body.style.overflow = newVisibleState ? 'hidden' : 'auto';
   };
 
