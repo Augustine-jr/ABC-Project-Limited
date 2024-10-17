@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '../components/Hero'// Imported this from Hero.jsx into the Home.jsx page so whenever we open HOme page it will display whatever is in Hero.jsx
 import LatestCollection from '../components/LatestCollection'// Imported this from LatestCollection
 import BestSeller from '../components/BestSeller'
+import OurPolicy from '../components/OurPolicy'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
        <Hero />
        <LatestCollection />
        <BestSeller />
+       <OurPolicy />
     </div>
   )
 }

@@ -7,6 +7,9 @@ import menu_icon from './menu_icon.svg';
 import backarrow_icon from './backarrow_icon.svg';
 import cancel_icon from './cancel_icon.svg';
 import placeholder_icon from './placeholder_icon.svg';
+import bulkorders_icon from './bulkorders_icon.svg';
+import customcut_icon from './customcut_icon.svg';
+import customersupport_icon from './customersupport_icon.svg';
 
 
 export const assets = {
@@ -19,6 +22,9 @@ export const assets = {
     backarrow_icon,
     cancel_icon,
     placeholder_icon,
+    bulkorders_icon,
+    customcut_icon,
+    customersupport_icon,
  };
 
 export const products = [
