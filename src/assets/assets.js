@@ -10,6 +10,8 @@ import placeholder_icon from './placeholder_icon.svg';
 import bulkorders_icon from './bulkorders_icon.svg';
 import customcut_icon from './customcut_icon.svg';
 import customersupport_icon from './customersupport_icon.svg';
+import interswitch_logo from './interswitch_logo.svg';
+import paystack_logo from './paystack_logo.svg';
 
 
 export const assets = {
@@ -25,6 +27,8 @@ export const assets = {
     bulkorders_icon,
     customcut_icon,
     customersupport_icon,
+    interswitch_logo,
+    paystack_logo,
  };
 
 export const products = [

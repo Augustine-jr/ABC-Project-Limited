@@ -4,6 +4,7 @@ import LatestCollection from '../components/LatestCollection'// Imported this fr
 import BestSeller from '../components/BestSeller'
 import OurPolicy from '../components/OurPolicy'
 import NewsLetterBox from '../components/NewsLetterBox'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
@@ -13,10 +14,11 @@ const Home = () => {
        <BestSeller />
        <OurPolicy />
        <NewsLetterBox />
+       <Footer />
     </div>
   )
 }
 
 
-
+ 
 export default Home
