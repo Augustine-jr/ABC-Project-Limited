@@ -69,7 +69,6 @@ input:-webkit-autofill {
 
 input:-webkit-autofill:focus {
   background-color: #ebe6d7 !important;
-  color: black !important;
   box-shadow: 0 0 0px 1000px #ebe6d7 inset !important;
 }
 
@@ -82,7 +81,4 @@ input:-webkit-autofill:active {
   background-color: #d1c7a3 !important;
   color: black !important;
 }
-
-
-
 

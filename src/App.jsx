@@ -1,5 +1,5 @@
 import React from 'react';        // Import React library to use JSX and build components
-import { Routes, Route } from 'react-router-dom';   // Import Routes and Route to handle navigation
+import { Routes, Route, useLocation } from 'react-router-dom';   // Import Routes and Route to handle navigation
 import Home from './pages/Home';
 import Material from './pages/Material';
 import About from './pages/About';
@@ -11,15 +11,21 @@ import PlaceOrder from './pages/PlaceOrder';
 import Orders from './pages/Orders';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 // Define the main App component
 const App = () => {
-  return (
+   const location = useLocation(); // Get the current route
+
+   // Define an array of paths where the footer should NOT be displayed
+   const FooterRoutes = ['/', '/materials', '/about']
+   const NavbarRoutes = ['/', '/materials', '/about']
+  return ( 
     <div>
 
-      <Navbar />
-      <div className={'px-4 sm:px-10 md:px-10 max-w-[1720px] mx-auto  bg-inherit text-gray-900'}>
+    {NavbarRoutes.includes(location.pathname) && <Navbar />}
+      <div className={'px-4 sm:px-10 md:px-10 max-w-[1720px] mx-auto  bg-[#ebe6d7] text-gray-900'}>
 
       {/* Routes container to handle different URL paths */}
       <Routes>
@@ -35,14 +41,14 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/orders' element={<Orders />} />
-
         {/* Catch-all route for any undefined paths */}
         <Route path='*' element={<NotFound />} />
       </Routes>
+    {FooterRoutes.includes(location.pathname) && <Footer />}
     </div>    
-    {/* Apply responsive padding with Tailwind CSS */}
-      
+       {/* Conditionally render Footer based on the current route */}
     </div>
+  
   )
 }
 
