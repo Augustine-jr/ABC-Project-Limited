@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { assets } from '../assets/assets'
 import axios from 'axios';
 
 
@@ -93,7 +94,9 @@ const Material = () => {
       
        {/* Filter Options */}
        <div className='min-w-60'>
-          <p className='my-2 text-xl flex items-center cursor-pointer gap-2' onClick={() => setShowFilter(!showFilter)}>FILTERS</p>
+          <p className='my-2 text-xl flex items-center cursor-pointer gap-2' onClick={() => setShowFilter(!showFilter)}>FILTERS
+           <img className={`h-3 sm:hidden ${showFilter ? '' : '-rotate-90'}`} src={assets.dropdown_icon} alt="Dropdown Logo" />
+          </p>
           {/* Category Filter */}
           <div className={`border border-[#d1c7a3] pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
              <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
@@ -113,7 +116,7 @@ const Material = () => {
              </div>
           </div>
           {/* Price Filter */}
-          <div className={`border border-[#d1c7a3] pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
+          <div className={`border border-[#d1c7a3] pl-5 py-3 my-5 ${showFilter ? '' : 'hidden'} sm:block`}>
              <p className='mb-3 text-sm font-medium'>Price Range</p>
              <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
                 <div className='flex gap-2'>

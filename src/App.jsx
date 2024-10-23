@@ -19,8 +19,8 @@ const App = () => {
    const location = useLocation(); // Get the current route
 
    // Define an array of paths where the footer should NOT be displayed
-   const FooterRoutes = ['/', '/materials', '/about']
-   const NavbarRoutes = ['/', '/materials', '/about']
+   const FooterRoutes = ['/', '/materials', '/about', '/contact']
+   const NavbarRoutes = ['/', '/materials', '/about', '/contact']
   return ( 
     <div>
 
