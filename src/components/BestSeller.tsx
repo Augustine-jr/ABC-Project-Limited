@@ -53,7 +53,7 @@ const BestSeller = () => {
               {/* Render each product with fallback for image and name */}
               <ProductItem 
                 id={item._id} // Product ID
-                image={item.image || 'https://via.placeholder.com/150'} // Fallback image if none provided
+                image={Array.isArray(item.image) ? item.image : [item.image || 'https://via.placeholder.com/150']}
                 name={item.name || ''} // Fallback name if none provided
                 price={item.price} // Product price
               />

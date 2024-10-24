@@ -52,7 +52,7 @@ const LatestCollection = () => {
             // Each product item needs a unique key prop; using index here as a fallback
             <div key={index} className="p-4"> {/* Add padding to each item */}
               {/* Render the ProductItem component with the necessary props */}
-              <ProductItem id={item._id} image={item.image} name={item.name} price={item.price} />
+              <ProductItem id={item._id} image={item.image ?? []} name={item.name} price={item.price} />
             </div>
           ))
         }

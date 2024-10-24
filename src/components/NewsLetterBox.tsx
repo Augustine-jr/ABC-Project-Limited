@@ -1,35 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'; 
 import validator from 'validator';
 
 const NewsLetterBox = () => {
-  const [email, setEmail] = useState(''); // This holds the email input from the user
+  // This holds the email input from the user, explicitly typed as a string.
+  const [email, setEmail] = useState<string>(''); 
 
   // This function runs when the form is submitted
-  const onSubmitHandler = async (event) => {
+  const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent the page from refreshing when the form is submitted
 
-   // Use validator to check if the email is valid
-  if (!validator.isEmail(email)) {
-    toast.error('Please enter a valid email address.', {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      className: 'custom-toast',
-      progressClassName: 'custom-toast-progress',
-    });
+    // Use validator to check if the email is valid
+    if (!validator.isEmail(email)) {
+      // Show an error message if email is invalid
+      toast.error('Please enter a valid email address.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        className: 'custom-toast',
+        progressClassName: 'custom-toast-progress',
+      });
       return; // Exit if email is invalid
     }
 
-    // Check if email already exists (Placeholder for now)
-    const existingEmails = ['existing@email.com', 'another@existing.email.com']; // Replace with real checks later
+    // Placeholder for checking if email already exists (static for now)
+    const existingEmails = ['existing@email.com', 'another@existing.email.com'];
     if (existingEmails.includes(email)) {
+      // Show an error if email is already registered
       toast.error('This email address is already registered.', {
         position: "top-right",
         autoClose: 3000,
@@ -45,11 +48,12 @@ const NewsLetterBox = () => {
 
     try {
       // Simulate sending the email to the backend (axios part)
-      // We'll comment out this part since you don't have a backend yet
+      // You can uncomment this when you connect to a backend
       /*
-      const response = await axios.post('https://yourbackend.com/api/subscribe', { email });
+      const response = await axios.post<{ success: boolean }>('https://yourbackend.com/api/subscribe', { email });
       
       if (response.status === 200) {
+        // Show a success message if the email was successfully subscribed
         toast.success('You have successfully subscribed!', {
           position: "top-right",
           autoClose: 3000,
@@ -62,6 +66,7 @@ const NewsLetterBox = () => {
         });
         setEmail(''); // Clear the email input after successful subscription
       } else {
+        // Show an error if subscription failed
         toast.error('Failed to subscribe. Please try again later.', {
           position: "top-right",
           autoClose: 3000,
@@ -75,7 +80,7 @@ const NewsLetterBox = () => {
       }
       */
 
-      // For now, simulate success
+      // Simulate success for now
       toast.success('You have successfully subscribed!', {
         position: "top-right",
         autoClose: 3000,
@@ -90,7 +95,7 @@ const NewsLetterBox = () => {
       setEmail(''); // Clear the input after subscription
 
     } catch (error) {
-      // If there's an error (like network or server issue), show an error toast
+      // Show an error message if something went wrong (e.g., network or server issues)
       toast.error('An error occurred. Please try again later.', {
         position: "top-right",
         autoClose: 3000,

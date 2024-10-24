@@ -1,7 +1,17 @@
 import React from 'react'
 import { assets } from '../assets/assets'
 
-const PolicyItem = ({ icon, title, description }) => (
+// Define an interface for the props of PolicyItem component
+// This helps TypeScript understand the expected shape of the props
+interface PolicyItemProps {
+  icon: string;    // URL or path to the icon image
+  title: string;   // Title of the policy item
+  description: string;  // Description of the policy item
+}
+
+// PolicyItem component with typed props
+// Using the interface to provide type information for destructured props
+const PolicyItem = ({ icon, title, description }: PolicyItemProps) => (
   <div>
     <img src={icon} className='w-12 m-auto mb-5' alt={`${title} Icon`} />
     <p className='font-semibold'>{title}</p>
