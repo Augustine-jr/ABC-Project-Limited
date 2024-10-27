@@ -1,13 +1,13 @@
-import js from '@eslint/ts'
-import globals from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
+import js from '@typescript-eslint/eslint-plugin';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 
 export default [
   { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'], // Include TypeScript files if needed
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -17,7 +17,7 @@ export default [
         sourceType: 'module',
       },
     },
-    settings: { react: { version: '18.3' } },
+    settings: { react: { version: '18.0' } }, // Use the correct version format
     plugins: {
       react,
       'react-hooks': reactHooks,
@@ -35,4 +35,4 @@ export default [
       ],
     },
   },
-]
+];

@@ -151,10 +151,10 @@ const Material = () => {
               className='mt-3 bg-[#d1c7a3] text-black rounded-md py-2 mr-4 px-4 hover:bg-[#bfb292] transition-all duration-200'
               disabled={!minPrice || !maxPrice} // Disable button if inputs are empty
             >
-              {loading ? 'Filtering...' : 'Apply Filter'} // Show loading text if applicable
+              {loading ? 'Filtering...' : 'Apply Filter'} 
             </button>
             <button onClick={resetFilters} className='mt-3 bg-gray-300 text-black rounded-md py-2 mr-4 px-4'>
-              Reset Filters // Reset filters button
+              Reset Filters 
             </button>
           </div>
         </div>

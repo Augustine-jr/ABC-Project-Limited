@@ -105,6 +105,14 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
-  
+    
+  },
+ "include": [
+    "src/**/*",
+    "src/images.d.ts",
+    "eslint-plugin-declarations.d.ts" // Include your new declaration file
+  ]
 }
+
+  
+
