@@ -1,5 +1,5 @@
-import React, { useState } from 'react'; // import React and useState hook for managing state changes
-import { Link, NavLink } from 'react-router-dom'; // import Link and NavLink for navigation between pages
+import React, { useEffect, useState } from 'react'; // import React and useState hook for managing state changes
+import { Link, NavLink, useLocation,  } from 'react-router-dom'; // import Link and NavLink for navigation between pages
 import { assets } from '../assets/assets'; // Import assests (like images/icons) used in the navbar
 
 const Navbar = () => {
@@ -8,6 +8,7 @@ const Navbar = () => {
 
   // state to control whether the hamburger icon (on small screens) is active or not
   const [menuActive, setMenuActive] = useState(false); // Controls the hamburger icon state
+  const location = useLocation();
 
   // Function to toggle menu visibility and hamburger button state
   const toggleMenu = () => {
@@ -19,40 +20,32 @@ const Navbar = () => {
   document.body.style.overflow = newVisibleState ? 'hidden' : 'auto';
   };
 
-
+   //update navbar background based on route change
+   useEffect(() => {
+    document.body.style.overflow = 'auto' // Ensure scroll is enbaled when changing routes
+   }, [location]);
 
 
   return (
-    <div className="flex justify-between w-full items-center py-5 px-6 font-bold bg-[#ebe6d7] text-gray-700">
+    <div
+      className={`fixed top-0 left-0 w-full z-50 px-6 py-5 transition-all duration-300 ${
+        location.pathname === '/' ? 'bg-transparent' : 'bg-[#ebe6d7]'
+      } text-gray-700`}
+    >
+    <div className="flex justify-between w-full items-center py-5 px-6 font-bold">
       {/* Logo: Displays the logo of the website */}
       <Link to='/'><img src={assets.ABC_Logo} alt="ABC Logo" className="w-20 md:w-40" /></Link>
 
-      {/* Desktop Menu Links (visible only on large screens) */}
-      <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
-        {/* Home Link */}
-        <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p>HOME</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-
-        {/* Materials Link */}
-        <NavLink to="/materials" className="flex flex-col items-center gap-1">
-          <p>MATERIALS</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
- 
-        {/* About Link */}
-        <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>ABOUT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
-   
-        {/* Contact Link */}
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
-        </NavLink>
+      {/* Desktop Menu Links */}
+      <ul className="hidden sm:flex gap-5 text-sm text-white">
+        {['HOME', 'MATERIALS', 'ABOUT', 'CONTACT'].map((text, index) => (
+          <NavLink key={index} to={`/${text.toLowerCase()}`} className='flex flex-col items-center gap-1'>
+            <p>{text}</p>
+            <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
+          </NavLink>
+        ))}
       </ul>
+
 
       {/* Icons and Menu Toggle for smaller screens */}
       <div className="flex items-center gap-6">
@@ -167,6 +160,7 @@ const Navbar = () => {
           </NavLink>
         </div>
       </div>
+    </div>
     </div>
   );
 };

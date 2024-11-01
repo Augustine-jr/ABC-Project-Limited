@@ -13,7 +13,7 @@ import customersupport_icon from './customersupport_icon.svg';
 import interswitch_logo from './interswitch_logo.svg';
 import paystack_logo from './paystack_logo.svg';
 import dropdown_icon from './dropdown_icon.svg';
-import hero_video from './hero_video.svg';
+import hero_video from './hero_video.mp4';
 
 
 export const assets = {
@@ -32,6 +32,7 @@ export const assets = {
     interswitch_logo,
     paystack_logo,
     dropdown_icon,
+    hero_video
  };
 
 export const products = [
