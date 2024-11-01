@@ -83,9 +83,10 @@ const Navbar = () => {
           <img src={assets.menu_icon} alt='menu icon' className='w-8' />
         </div>
       </div>
+    </div>
 
       {/* Sidebar menu for smaller screens (when hamburger menu is clicked) */}
-      <div className={`absolute top-0 right-0 overflow-hidden bg-inherit  duration-700 transition-all ${visible ? 'w-full' : 'w-0'} h-full`}>
+      <div className={`fixed top-0 right-0 overflow-hidden bg-[#ebe6d7]  duration-700 transition-all ${visible ? 'w-full' : 'w-0'} h-full`}>
         <div className="flex flex-col text-gray-600">
           {/* Back Button  to close the sidebar menu */}
           <div onClick={() => {
@@ -97,70 +98,41 @@ const Navbar = () => {
             <img src={assets.backarrow_icon} alt="Back Arrow Icon" className="w-5" />
             <p>Back</p>
           </div>
+          
+          {/* sidebar menu links */}
+        {/*Array of navigation link texts: HOME, MATERIALS, ABOUT, and CONTACT*/}
+{['HOME', 'MATERIALS', 'ABOUT', 'CONTACT'].map((text, index) => (
+    <NavLink
+        // Each NavLink component requires a unique key, so we use the array index
+        key={index}
 
-          {/* Sidebar Menu Links with animations */}
-          {/* Home Link in Sidebar */}
-          <NavLink onClick={() => {
-            setVisible(false);
-            setMenuActive(false);
-            document.body.style.overflow = 'auto';
-          }}
-            to="/"
-            className={`p-3 border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
-              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-            }`}
-            style={{ transitionDelay: '100ms' }} // Delay for the first link to slide in
-          >
-            Home
-          </NavLink>
+        // 'to' property sets the route path for each link
+        // Converts the link text to lowercase and sets it as the route path, e.g., '/home', '/materials'
+        to={`/${text.toLowerCase()}`}
 
-          {/* Materials Link in Sidebar */}
-          <NavLink onClick={() => {
-            setVisible(false);
-            setMenuActive(false);
-            document.body.style.overflow = 'auto';
-          }}
-            to="/materials"
-            className={`p-3  border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
-              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-            }`}
-            style={{ transitionDelay: '200ms' }} // Delay for the second link
-          >
-            Materials
-          </NavLink>
+        // CSS classes for styling and animations
+        className={`p-3 border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
+            visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+        }`}
 
-          {/* About Link in Sidebar */}
-          <NavLink onClick={() => {
-            setVisible(false);
-            setMenuActive(false);
-            document.body.style.overflow = 'auto';
-          }}
-            to="/about"
-            className={`p-3  border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
-              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-            }`}
-            style={{ transitionDelay: '300ms' }} // Delay for the third link
-          >
-            About
-          </NavLink>
+        // Adds a delay for each link's animation so they slide in one after another
+        // Delay increases by 100ms for each link, creating a staggered effect
+        style={{ transitionDelay: `${100 * (index + 1)}ms` }}
 
-          {/* Contact Link in Sidebar */}
-          <NavLink onClick={() => {
-            setVisible(false);
-            setMenuActive(false);
-            document.body.style.overflow = 'auto';
-          }}
-            to="/contact"
-            className={`p-3  border-b border-[#d1c7a3] hover:bg-[#ebe6d7] transition-transform duration-500 transform ${
-              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-            }`}
-            style={{ transitionDelay: '400ms' }} // Delay for the fourth link
-          >
-            Contact
-          </NavLink>
+        // onClick event handler that hides the sidebar and re-enables page scrolling
+        onClick={() => {
+            setVisible(false);      // Hides the sidebar by setting visibility to false
+            setMenuActive(false);    // Resets the active menu state
+            document.body.style.overflow = 'auto'; // Re-enables page scroll
+        }}
+    >
+        {/* Display the link text */}
+        {text}
+    </NavLink>
+))}
+
         </div>
       </div>
-    </div>
     </div>
   );
 };
