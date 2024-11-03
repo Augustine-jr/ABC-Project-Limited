@@ -1,5 +1,5 @@
-import React from 'react';        // Import React library to use JSX and build components
-import { Routes, Route, useLocation } from 'react-router-dom';   // Import Routes and Route to handle navigation
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Material from './pages/Material';
 import About from './pages/About';
@@ -13,44 +13,45 @@ import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-
-// Define the main App component
 const App = () => {
-   const location = useLocation(); // Get the current route
+  const location = useLocation();
 
-   // Define an array of paths where the footer should NOT be displayed
-   const FooterRoutes = ['/', '/materials', '/about', '/contact']
-   const NavbarRoutes = ['/', '/materials', '/about', '/contact']
-  return ( 
+  const FooterRoutes = ['/', '/materials', '/about', '/contact'];
+  const NavbarRoutes = ['/', '/materials', '/about', '/contact'];
+
+  return (
     <div>
+      {/* Conditionally render Navbar */}
+      {NavbarRoutes.includes(location.pathname) && <Navbar />}
 
-    {NavbarRoutes.includes(location.pathname) && <Navbar />}
-      <div className={'px-4 sm:px-10 md:px-10 max-w-[1720px] mx-auto  bg-[#ebe6d7] text-gray-900'}>
-
-      {/* Routes container to handle different URL paths */}
-      <Routes>
-        {/* When user visits the root URL (/), render the Home component */}
-        <Route path='/' element={<Home />} />
-        
-        {/* Define other routes for different pages */}
-        <Route path='/materials' element={<Material />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/products/:productId' element={<Product />} />  {/* productId is dynamic */}
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/place-order' element={<PlaceOrder />} />
-        <Route path='/orders' element={<Orders />} />
-        {/* Catch-all route for any undefined paths */}
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    {FooterRoutes.includes(location.pathname) && <Footer />}
-    </div>    
-       {/* Conditionally render Footer based on the current route */}
+      {/* Home Page without layout constraints */}
+      {location.pathname === '/' ? (
+        <>
+          {/* Render the Home page without layout constraints */}
+          <Home />
+        </>
+      ) : (
+        // Other pages with layout constraints
+        <div className="px-4 sm:px-10 md:px-10 max-w-[1720px] mx-auto bg-[#ebe6d7] text-gray-900">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/materials" element={<Material />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/products/:productId" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/place-order" element={<PlaceOrder />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      )}
+      
+      {/* Conditionally render Footer */}
+      {FooterRoutes.includes(location.pathname) && <Footer />}
     </div>
-  
-  )
-}
+  );
+};
 
-// Export the App component so it can be used in other files
-export default App
+export default App;

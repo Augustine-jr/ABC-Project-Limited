@@ -14,6 +14,8 @@ import interswitch_logo from './interswitch_logo.svg';
 import paystack_logo from './paystack_logo.svg';
 import dropdown_icon from './dropdown_icon.svg';
 import hero_video from './hero_video.mp4';
+import search_icon_light from './search_icon_light.svg';
+import profile_icon_light from './profile_icon_light.svg';
 
 
 export const assets = {
@@ -32,7 +34,9 @@ export const assets = {
     interswitch_logo,
     paystack_logo,
     dropdown_icon,
-    hero_video
+    hero_video,
+    search_icon_light,
+    profile_icon_light
  };
 
 export const products = [

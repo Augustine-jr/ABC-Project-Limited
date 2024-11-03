@@ -1,24 +1,27 @@
-import React from 'react'
-import Hero from '../components/Hero'// Imported this from Hero.jsx into the Home.jsx page so whenever we open HOme page it will display whatever is in Hero.jsx
-import LatestCollection from '../components/LatestCollection'// Imported this from LatestCollection
-import BestSeller from '../components/BestSeller'
-import OurPolicy from '../components/OurPolicy'
-import NewsLetterBox from '../components/NewsLetterBox'
-import Footer from '../components/Footer'
-import Him from '../components/Him'
+import React from 'react';
+import Him from '../components/Him'; // Hero section
+import LatestCollection from '../components/LatestCollection'; // Latest Collection component
+import BestSeller from '../components/BestSeller'; // Best Seller component
+import OurPolicy from '../components/OurPolicy'; // Policy section
+import NewsLetterBox from '../components/NewsLetterBox'; // Newsletter subscription box
 
 const Home = () => {
   return (
     <div>
-       <Him />
-       <LatestCollection />
-       <BestSeller />
-       <OurPolicy />
-       <NewsLetterBox />
+      {/* Full-width Hero section */}
+      <div className="w-full">
+        <Him /> {/* The hero video and content */}
+      </div>
+
+      {/* Main content with layout constraints */}
+      <div className="px-4 sm:px-10 md:px-10 max-w-[1720px] mx-auto bg-[#ebe6d7] text-gray-900 py-8">
+        <LatestCollection />
+        <BestSeller />
+        <OurPolicy />
+        <NewsLetterBox />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-
- 
-export default Home
+export default Home;
