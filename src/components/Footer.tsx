@@ -19,30 +19,23 @@ const Footer:  React.FC = () => { // Define Footer as a functional component
     <a className="link link-hover">Plywood</a>
   </nav>
   <nav>
-  <h6 className="footer-title">Support</h6>
-  <a className="link link-hover">Shipping & Delivery</a>
-  <a className="link link-hover">Order Tracking</a>
-  <a className="link link-hover">Returns & Exchanges</a>
-  <a className="link link-hover">FAQs</a>
-</nav>
-<nav>
     <h6 className="footer-title flex flex-row">Get In Touch</h6>
           <a href="https://www.facebook.com" className="link link-hover">Facebook</a>
           <a href="https://www.instagram.com" className="link link-hover">Instagram</a>
+          <a href="https://wa.me/2349077579138" target="_blank" rel="noopener noreferrer" className="link link-hover">WhatsApp</a>
           <a href="https://x.com" className="link link-hover">X</a>
-           <a href="https://wa.me/2349077579138" target="_blank" rel="noopener noreferrer" className="link link-hover">WhatsApp</a>
   </nav> 
+  <nav>
+  <h6 className="footer-title">Support</h6>
+  <a className="link link-hover">Shipping & Delivery</a>
+  <a className="link link-hover">Order Tracking</a>
+  <a className="link link-hover">FAQs</a>
+</nav>
   <nav>
     <h6 className="footer-title">Company</h6>
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Careers</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Legal</h6>
-    <a className="link link-hover">Terms of use</a>
-    <a className="link link-hover">Privacy policy</a>
-    <a className="link link-hover">Cookie policy</a>
   </nav>
   <nav>
     <h6 className="footer-title">Payment Options</h6>
