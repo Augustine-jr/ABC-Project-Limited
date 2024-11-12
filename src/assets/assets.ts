@@ -16,6 +16,7 @@ import dropdown_icon from './dropdown_icon.svg';
 import hero_video from './hero_video.mp4';
 import search_icon_light from './search_icon_light.svg';
 import profile_icon_light from './profile_icon_light.svg';
+import pickuptruck_light from './pickuptruck_light.svg';
 
 
 export const assets = {
@@ -36,7 +37,8 @@ export const assets = {
     dropdown_icon,
     hero_video,
     search_icon_light,
-    profile_icon_light
+    profile_icon_light,
+    pickuptruck_light
  };
 
 export const products = [

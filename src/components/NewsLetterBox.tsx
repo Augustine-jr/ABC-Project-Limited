@@ -113,13 +113,9 @@ const NewsLetterBox = () => {
     <div className='text-center pt-8'>
       <ToastContainer /> {/* Toast container to display success/error messages */}
 
-      <p className='text-lg sm:text-2xl md:text-3xl font-medium text-gray-800'>
+      <p className='text-lg sm:text-2xl md:text-3xl font-medium text-gray-800 pb-10'>
         Stay Updated with the Latest Building Materials and Offers
       </p>
-      <p className='text-gray-400 mt-3 text-sm sm:text-base pb-3'>
-        Sign up for our newsletter to receive exclusive offers, product updates, and expert advice on building materials, tools, and supplies for your next project.
-      </p>
-
       {/* Form to get the email */}
       <form onSubmit={onSubmitHandler} className="rounded-md border-2 border-solid border-[#d1c7a3] flex items-center max-w-md mx-auto">
         <input
