@@ -13,10 +13,10 @@ import customersupport_icon from './customersupport_icon.svg';
 import interswitch_logo from './interswitch_logo.svg';
 import paystack_logo from './paystack_logo.svg';
 import dropdown_icon from './dropdown_icon.svg';
-import hero_video from './hero_video.mp4';
 import search_icon_light from './search_icon_light.svg';
 import profile_icon_light from './profile_icon_light.svg';
 import pickuptruck_light from './pickuptruck_light.svg';
+import hero_image from './hero_image.webp';
 
 
 export const assets = {
@@ -35,10 +35,10 @@ export const assets = {
     interswitch_logo,
     paystack_logo,
     dropdown_icon,
-    hero_video,
     search_icon_light,
     profile_icon_light,
-    pickuptruck_light
+    pickuptruck_light,
+    hero_image
  };
 
 export const products = [

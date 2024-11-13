@@ -38,6 +38,9 @@ declare module "*.MOV" {
   export default content;
 }
 
-// Add more video formats as needed
+declare module "*.webp" {
+  const content: any;
+  export default content;
+}
 
-// This code tells TypeScript that when you import an image file with those extensions, it should treat it as a module with a default export.
+// Add more video or image formats as needed

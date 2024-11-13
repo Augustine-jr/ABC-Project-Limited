@@ -127,7 +127,7 @@ const Navbar = () => {
             onClick={toggleMenu}
             className={`menu-toggle ${menuActive ? "active" : ""} w-8 h-8 cursor-pointer flex flex-col justify-around items-center transition-transform duration-500 sm:hidden`}
           >
-            <img src={assets.menu_icon} alt="menu icon" className="w-8" />
+            <img src={assets.menu_icon} alt="menu icon" />
           </div>
         </div>
       </div>
