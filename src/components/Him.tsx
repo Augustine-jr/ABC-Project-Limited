@@ -4,7 +4,7 @@ import { assets } from '../assets/assets';
 
 const Him = () => {
   return (
-    <div className="relative hero min-h-screen overflow-hidden">
+    <div className="relative hero min-h-screen overflow-hidden ">
       {/* Image Background */}
       <img
         src={assets.hero_image} // Replace this with your image path
@@ -13,7 +13,7 @@ const Him = () => {
       />
 
       {/* Hero Content */}
-      <div className="hero-content text-center relative z-10 flex items-center justify-center h-full">
+      <div className="hero-content text-center relative z-10 flex items-center justify-center h-full ">
         <motion.h1
           className="text-white font-bold text-3xl sm:text-4xl lg:text-5xl"
           initial={{ opacity: 0, y: 50 }}
@@ -24,6 +24,7 @@ const Him = () => {
         </motion.h1>
       </div>
     </div>
+  
   );
 };
 

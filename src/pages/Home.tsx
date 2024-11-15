@@ -8,6 +8,10 @@ import NewsLetterBox from '../components/NewsLetterBox'; // Newsletter subscript
 const Home = () => {
   return (
     <div>
+      <div className="bg-red-500">
+        i like shoes 
+      </div>
+
       {/* Full-width Hero section */}
       <div className="w-full">
         <Him /> {/* The hero video and content */}

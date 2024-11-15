@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
-  const [isHeroSection, setIsHeroSection] = useState(true);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -18,19 +17,6 @@ const Navbar = () => {
     document.body.style.overflow = newVisibleState ? "hidden" : "auto";
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Check if scroll position is past the height of the hero section
-      if (window.scrollY > window.innerHeight) {
-        setIsHeroSection(false);
-      } else {
-        setIsHeroSection(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = "auto"; // Ensure scroll is enabled when changing routes
@@ -44,29 +30,29 @@ const Navbar = () => {
   };
 
   return (
+    <div>
+
+
     <motion.div
-      className={`fixed top-0 left-0 w-full z-50 px-6 py-5 transition-all duration-300 ${
-        isHeroSection ? "bg-transparent" : "bg-[#ebe6d7]"
-      }`}
+      className={"fixed top-[20px] left-0 w-full z-50   transition-all duration-300"}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <div className="flex justify-between w-full items-center py-5 px-6 font-bold">
+      
+      <div className="flex justify-between w-full items-center py-5 px-12 font-bold">
         <Link to="/">
           <motion.img
-            src={isHeroSection ? assets.ABC_light : assets.ABC_Logo}
+            src={assets.ABC_Logo}
             alt="ABC Logo"
             className="w-20 md:w-40"
-            animate={{ opacity: isHeroSection ? 1 : 0.8 }}
+            animate={{ opacity: 0.8 }}
             transition={{ duration: 0.5 }}
           />
         </Link>
 
         <motion.ul
-          className={`hidden sm:flex gap-5 text-sm ${
-            isHeroSection ? "text-white" : "text-gray-700"
-          }`}
+          className={"hidden sm:flex gap-5 text-sm text-black"}
         >
           {["HOME", "MATERIALS", "ABOUT", "CONTACT"].map((text, index) => (
             <NavLink
@@ -75,7 +61,7 @@ const Navbar = () => {
               className="flex flex-col items-center gap-1"
             >
               <motion.p
-                animate={{ color: isHeroSection ? "#ffffff" : "#333333" }}
+                animate={{ color: "#333333" }}
                 transition={{ duration: 0.5 }}
               >
                 {text}
@@ -86,19 +72,19 @@ const Navbar = () => {
 
         <div className="flex items-center gap-6 justify-between">
           <motion.img
-            src={isHeroSection ? assets.search_icon_light : assets.search_icon}
+            src={assets.search_icon}
             alt="Search Icon"
-            className={`w-7 cursor-pointer ${isHeroSection ? "w-[20px]" : ""}`}
-            animate={{ opacity: isHeroSection ? 1 : 0.8 }}
+            className={`w-7 cursor-pointer`}
+            animate={{ opacity: 0.8 }}
             transition={{ duration: 0.5 }}
           />
 
           <div className="group relative">
             <motion.img
               className="w-7 cursor-pointer"
-              src={isHeroSection ? assets.profile_icon_light : assets.profile_icon}
+              src={assets.profile_icon}
               alt="Profile Icon"
-              animate={{ opacity: isHeroSection ? 1 : 0.8 }}
+              animate={{ opacity: 0.8 }}
               transition={{ duration: 0.5 }}
             />
             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4 bg-[#d1c7a3] rounded">
@@ -112,10 +98,10 @@ const Navbar = () => {
 
           <Link to="/cart" className="relative">
             <motion.img
-              src={isHeroSection ? assets.pickuptruck_light : assets.pickuptruck_icon}
+              src={assets.pickuptruck_icon}
               alt="Picktruck Icon"
               className="w-8 min-w-5 cursor-pointer"
-              animate={{ opacity: isHeroSection ? 1 : 0.8 }}
+              animate={{ opacity: 0.8 }}
               transition={{ duration: 0.5 }}
             />
             <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
@@ -174,6 +160,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </motion.div>
+    </div>
   );
 };
 
