@@ -1,10 +1,13 @@
-import React, { useContext, useState } from 'react'; // Importing React, useContext, and useState hooks
+import React, { useContext, useState, useEffect } from 'react'; // Importing React, useContext, and useState hooks
 import { ShopContext } from '../context/ShopContext'; // Importing the ShopContext for accessing shop data
 import { ShopContextType } from '../types'; // Importing ShopContextType for TypeScript type safety
 import { ToastContainer, toast } from 'react-toastify'; // Importing ToastContainer and toast for notifications
 import 'react-toastify/dist/ReactToastify.css'; // Importing CSS for toast notifications
 import { assets } from '../assets/assets'; // Importing assets such as icons
 import axios, { AxiosError } from 'axios'; // Importing axios for making API requests
+import Title from '../components/Title';
+import { Product } from '../types'; // Importing the Product type
+import ProductItem from '../components/ProductItem';
 
 const Material = () => {
   // Using the ShopContext to access product data
@@ -23,6 +26,11 @@ const Material = () => {
   const [minPrice, setMinPrice] = useState<string>(''); // State for minimum price input
   const [maxPrice, setMaxPrice] = useState<string>(''); // State for maximum price input
   const [loading, setLoading] = useState(false); // State to show loading status during filtering
+  const [filterProducts, setFilterProducts] = useState<Product[]>([]); // Specify the type of filterProducts as Product[]
+
+  useEffect(() => {
+    setFilterProducts(products);
+  }, [products]); // Add products as a dependency 
 
   // Function to apply the price filter
   const applyFilter = async () => {
@@ -50,11 +58,11 @@ const Material = () => {
       });
 
       // Handle the response based on the status code
-      if (response.status === 200) {
-        console.log(response.data); // Log the filtered products (can be used to update state)
-        toast.success(`Filtered products from ${min} to ${max}`); // Notify success
+      if (response.status === 200 && Array.isArray(response.data)) {
+        setFilterProducts(response.data); // Update the state with the filtered products
+        toast.success(`Filtered products from ${min} to ${max}`); // Notify the user of success
       } else {
-        toast.warn(`Unexpected response with status code: ${response.status}`);
+        toast.error('Unexpected response format'); // Display an error if the response is not as expected
       }
     } catch (error) {
       const axiosError = error as AxiosError; // Type assertion for error handling
@@ -160,6 +168,28 @@ const Material = () => {
         </div>
       </div>
       
+      {/* Right Side */}
+      <div className='flex-1'>
+
+        <div className='flex justify-between text-base sm:text-2xl mb-4'>
+
+           <Title text1={'ALL'} text2={'Materials'} />
+           {/* Product sort */}
+           <select className='border-2 border-[#d1c7a3] text-sm px-2 bg-inherit'>
+            <option value="relavent">Sort by: Relavent</option>
+            <option value="low-high">Sort by: Low to High</option>
+            <option value="high-low">Sort by: High to Low</option>
+           </select>
+     </div>
+       {/* Product Grid */}
+       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+         {
+          filterProducts.map((item,index)=>(
+            <ProductItem key={index} name={item.name} id={item._id} price={item.price} image={item.image} />
+          ))
+         }
+       </div>
+      </div>
       {/* Toast Container for notifications */}
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} closeOnClick pauseOnHover draggable pauseOnFocusLoss />
     </div>

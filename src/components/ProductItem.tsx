@@ -8,7 +8,10 @@ import { Link } from 'react-router-dom'; // Importing Link to create navigable l
 // - 'image': an array of image URLs (as strings), we're using the first image to display the product
 // - 'name': the product name (string)
 // - 'price': the product price (number)
-const ProductItem: React.FC<{id: number | string, image: string[], name: string, price: number}> = ({ id, image, name, price }) => {
+
+
+
+const ProductItem: React.FC<{ id: string; name: string; price: number; image?: string[] }>=({ id, image, name, price }) => {
 
   // Using the ShopContext to access global state (like the currency symbol)
   const context = useContext(ShopContext);
@@ -33,7 +36,7 @@ const ProductItem: React.FC<{id: number | string, image: string[], name: string,
         {/* The product image itself, using the first image in the 'image' array.
             A hover effect ('hover:scale-110') makes the image zoom in when the user hovers over it. 
             'transition ease-in-out' adds a smooth animation effect to the zoom. */}
-        <img className='hover:scale-110 transition ease-in-out w-full' src={image[0]} alt="" />
+        <img className='hover:scale-110 transition ease-in-out w-full' src={image && image.length > 0 ? image[0] : 'default-image-url.jpg'} alt="" />
       </div>
 
       {/* Below the image, displaying the product's name with padding for spacing.
