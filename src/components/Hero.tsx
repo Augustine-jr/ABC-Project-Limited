@@ -19,7 +19,7 @@ const Hero = () => {
         </div>
       </div>
       {/* Hero right side */}
-       <img src={} alt = "Placeholder Icon" className="w-full sm:w-1/2 object-cover" />
+       <img src={assets.hero_image} alt = "Placeholder Icon" className="w-full sm:w-1/2 object-cover" />
     </div>
   )
 }

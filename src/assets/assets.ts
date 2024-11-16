@@ -1,5 +1,4 @@
 import ABC_Logo from './ABC.png';
-import ABC_light from './ABC_light.png';
 import search_icon from './search_icon.svg';
 import profile_icon from './profile_icon.svg';
 import pickuptruck_icon from './pickuptruck_icon.svg';
@@ -13,15 +12,11 @@ import customersupport_icon from './customersupport_icon.svg';
 import interswitch_logo from './interswitch_logo.svg';
 import paystack_logo from './paystack_logo.svg';
 import dropdown_icon from './dropdown_icon.svg';
-import search_icon_light from './search_icon_light.svg';
-import profile_icon_light from './profile_icon_light.svg';
-import pickuptruck_light from './pickuptruck_light.svg';
 import hero_image from './hero_image.webp';
 
 
 export const assets = {
     ABC_Logo,
-    ABC_light,
     search_icon,
     profile_icon,
     pickuptruck_icon,
@@ -35,9 +30,6 @@ export const assets = {
     interswitch_logo,
     paystack_logo,
     dropdown_icon,
-    search_icon_light,
-    profile_icon_light,
-    pickuptruck_light,
     hero_image
  };
 
