@@ -46,7 +46,7 @@ const Navbar = () => {
             <motion.img
               src={assets.ABC_Logo}  // Logo image
               alt="ABC Logo"
-              className="w-20 md:w-40"
+              className="w-[100px] md:w-40"
               animate={{ opacity: 0.8 }}  // Fade-in effect
               transition={{ duration: 0.5 }}  // Smooth transition
             />
@@ -97,7 +97,7 @@ const Navbar = () => {
                 transition={{ duration: 0.5 }}  // Smooth transition
               />
               {/* Dropdown menu (appears on hover) */}
-              <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4 bg-[#d1c7a3] rounded">
+              <div className="group-hover:block hidden absolute z-50 dropdown-menu right-0 pt-4 bg-[#d1c7a3] rounded">
                 <div className="flex flex-col gap-2 w-36 py-3 px-5 text-gray-700 rounded">
                   <p className="cursor-pointer explore hover:text-black">My Profile</p>
                   <p className="cursor-pointer explore hover:text-black">Orders</p>

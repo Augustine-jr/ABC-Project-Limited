@@ -1,7 +1,24 @@
-import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'; // Import Swiper styles
+import 'swiper/css/navigation'; // Optional: for navigation buttons/arrows
+import 'swiper/css/pagination'; // Optional: for pagination dots
+import { Navigation, Autoplay } from 'swiper/modules'; // Correctly import the modules
 import { assets } from '../assets/assets'
 
+
 const Hero = () => {
+
+  //Aray of images for the hero slider
+  const heroImages = [
+    assets.hero_image,
+    assets.hero_image2,
+    assets.hero_image3,
+    assets.hero_image4,
+    assets.hero_image5,
+    assets.hero_image6,
+  ];
+
+
   return (
     <div className='flex flex-col sm:flex-row border border-[#d1c7a3]'>
       {/* Hero left side */}
@@ -18,9 +35,32 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* Hero right side */}
-       <img src={assets.hero_image} alt = "Placeholder Icon" className="w-full sm:w-1/2 object-cover" />
-    </div>
+      {/* Hero Image Carousel */}
+       <div className='w-full sm:w-1/2  group'>
+         <Swiper
+         modules={[Navigation, Autoplay]}
+         spaceBetween={10}
+         slidesPerView={1}
+         navigation={true} //Enable navigation arrows
+         pagination={{ clickable: true }} //Enable pagination dots
+         autoplay={{ delay: 3000, disableOnInteraction: false }} //Enable autoplay with 3 seconds delay
+         loop={true} // Infinite loop
+         >
+          {heroImages.map((image, index) => (
+            <SwiperSlide key={index}>
+               <img
+                src={image}
+                alt={`Hero Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </SwiperSlide>
+          ))}
+         </Swiper>
+
+      
+      </div>
+     </div>
+
   )
 }
 

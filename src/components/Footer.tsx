@@ -26,16 +26,9 @@ const Footer:  React.FC = () => { // Define Footer as a functional component
           <a href="https://x.com" className="link link-hover">X</a>
   </nav> 
   <nav>
-  <h6 className="footer-title">Support</h6>
-  <a className="link link-hover">Shipping & Delivery</a>
-  <a className="link link-hover">Order Tracking</a>
-  <a className="link link-hover">FAQs</a>
-</nav>
-  <nav>
     <h6 className="footer-title">Company</h6>
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Careers</a>
   </nav>
   <nav>
     <h6 className="footer-title">Payment Options</h6>

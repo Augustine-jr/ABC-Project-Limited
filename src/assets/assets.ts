@@ -13,6 +13,11 @@ import interswitch_logo from './interswitch_logo.svg';
 import paystack_logo from './paystack_logo.svg';
 import dropdown_icon from './dropdown_icon.svg';
 import hero_image from './hero_image.webp';
+import hero_image2 from './hero_image2.webp'
+import hero_image3 from './hero_image3.webp'
+import hero_image4 from './hero_image4.webp'
+import hero_image5 from './hero_image5.webp'
+import hero_image6 from './hero_image6.webp'
 
 
 export const assets = {
@@ -30,7 +35,12 @@ export const assets = {
     interswitch_logo,
     paystack_logo,
     dropdown_icon,
-    hero_image
+    hero_image,
+    hero_image2,
+    hero_image3,
+    hero_image4,
+    hero_image5,
+    hero_image6
  };
 
 export const products = [

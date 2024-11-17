@@ -8,6 +8,7 @@ import axios, { AxiosError } from 'axios'; // Importing axios for making API req
 import Title from '../components/Title';
 import { Product } from '../types'; // Importing the Product type
 import ProductItem from '../components/ProductItem';
+import Loader from '../components/Loader';
 
 const Material = () => {
   // Using the ShopContext to access product data
@@ -62,6 +63,7 @@ const Material = () => {
         setFilterProducts(response.data); // Update the state with the filtered products
         toast.success(`Filtered products from ${min} to ${max}`); // Notify the user of success
       } else {
+        console.error("API Response:", response);
         toast.error('Unexpected response format'); // Display an error if the response is not as expected
       }
     } catch (error) {
@@ -182,7 +184,7 @@ const Material = () => {
            </select>
      </div>
        {/* Product Grid */}
-       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+       <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6 divide-[#d1c7a3] divide-y md:divide-y-0 border-[#d1c7a3] border-y divide-x'>
          {
           filterProducts.map((item,index)=>(
             <ProductItem key={index} name={item.name} id={item._id} price={item.price} image={item.image} />

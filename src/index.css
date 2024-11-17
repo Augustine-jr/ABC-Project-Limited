@@ -82,3 +82,14 @@ input:-webkit-autofill:active {
   color: black !important;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+color: #d1c7a3;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.group:hover .swiper-button-next,
+.group:hover .swiper-button-prev {
+  opacity: 1;
+}
