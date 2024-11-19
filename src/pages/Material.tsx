@@ -21,7 +21,7 @@ const Material = () => {
     throw new Error('Material component must be used within a ShopContextProvider');
   }
 
-  const { products } = context;
+  const { products, search, showSearch } = context;
 
   const [showFilter, setShowFilter] = useState(false); // State for showing or hiding filters on small screens
   const [minPrice, setMinPrice] = useState<string>(''); // Minimum price filter state

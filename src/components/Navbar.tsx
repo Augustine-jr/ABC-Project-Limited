@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";  // Importing navigation components from react-router-dom
 import { assets } from "../assets/assets";  // Importing assets (images/icons)
 import { motion, AnimatePresence } from "framer-motion";  // Importing Framer Motion for animations
+import { ShopContext } from '../context/ShopContext'; 
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);  // State to manage the visibility of the mobile menu
   const [menuActive, setMenuActive] = useState(false);  // State to track the active state of the menu toggle
   const location = useLocation();  // Hook to get the current route location
+
+  const {setShowSearch} = useContext(ShopContext);  // Destructure setShowSearch from the ShopContext
 
   // Function to toggle the mobile menu's visibility and manage body scroll
   const toggleMenu = () => {
@@ -80,6 +83,7 @@ const Navbar = () => {
           <div className="flex items-center gap-6 justify-between">
             {/* Search icon */}
             <motion.img
+              onClick={() => setShowSearch(true)}  // Show the search bar on click
               src={assets.search_icon}  // Search icon
               alt="Search Icon"
               className={`w-7 cursor-pointer`}

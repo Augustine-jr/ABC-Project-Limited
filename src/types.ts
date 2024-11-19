@@ -12,4 +12,8 @@ export interface ShopContextType {
   products: Product[]; // An array of products
   currency: string; // The currency symbol (₦)
   delivery_fee: number; // The delivery fee amount
+     search: string; // Added search property
+    setSearch: React.Dispatch<React.SetStateAction<string>>; // Added setSearch property
+    showSearch: boolean; // Ensure showSearch is also included if not already
+    setShowSearch: (show: boolean) => void; // Add this line
 }

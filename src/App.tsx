@@ -12,6 +12,7 @@ import Orders from './pages/Orders';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SearchBar from './components/SearchBar';
 
 const App = () => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const App = () => {
     <div>
       {/* Conditionally render Navbar */}
       {NavbarRoutes.includes(location.pathname) && <Navbar />}
+      <SearchBar />
 
       {/* Home Page without layout constraints */}
       {location.pathname === '/' ? (
