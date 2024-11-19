@@ -71,7 +71,7 @@ const Material = () => {
     } catch (error) {
       const axiosError = error as AxiosError;
 
-      // Handle errors from the API
+      // Handle errors from the API using status codes
       if (axiosError.response) {
         const statusCode = axiosError.response.status;
         switch (statusCode) {
