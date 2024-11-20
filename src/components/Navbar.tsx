@@ -9,7 +9,7 @@ const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);  // State to track the active state of the menu toggle
   const location = useLocation();  // Hook to get the current route location
 
-  const {setShowSearch} = useContext(ShopContext);  // Destructure setShowSearch from the ShopContext
+  const { setShowSearch } = useContext(ShopContext);  // Remove type assertion
 
   // Function to toggle the mobile menu's visibility and manage body scroll
   const toggleMenu = () => {

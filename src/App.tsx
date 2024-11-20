@@ -17,8 +17,8 @@ import SearchBar from './components/SearchBar';
 const App = () => {
   const location = useLocation();
 
-  const FooterRoutes = ['/', '/materials', '/about', '/contact'];
-  const NavbarRoutes = ['/', '/materials', '/about', '/contact'];
+  const FooterRoutes = ['/', '/materials', '/about', '/contact','/products/:productId'];
+  const NavbarRoutes = ['/', '/materials', '/about', '/contact','/products/:productId'];
 
   return (
     <div>
