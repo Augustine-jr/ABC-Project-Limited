@@ -12,7 +12,7 @@ const Hero = () => {
   const heroImages = [
     assets.hero_image,
     assets.hero_image2,
-    assets.hero_image3,
+    "https://res.cloudinary.com/deae6smmh/image/upload/v1732116945/hero_image3_yjdq0t.webp",
     assets.hero_image4,
     assets.hero_image5,
     assets.hero_image6,

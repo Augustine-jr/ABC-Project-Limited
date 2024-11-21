@@ -19,6 +19,8 @@ import hero_image4 from './hero_image4.webp'
 import hero_image5 from './hero_image5.webp'
 import hero_image6 from './hero_image6.webp'
 import cross_icon from './cross_icon.svg';
+import star_icon from './star_icon.svg';
+import { start } from 'repl';
 
 
 export const assets = {
@@ -42,7 +44,8 @@ export const assets = {
     hero_image4,
     hero_image5,
     hero_image6,
-    cross_icon
+    cross_icon,
+    star_icon
  };
 
 export const products = [

@@ -17,13 +17,19 @@ import SearchBar from './components/SearchBar';
 const App = () => {
   const location = useLocation();
 
-  const FooterRoutes = ['/', '/materials', '/about', '/contact','/products/:productId'];
-  const NavbarRoutes = ['/', '/materials', '/about', '/contact','/products/:productId'];
+  const showNavbar = ['/', '/materials', '/about', '/contact','/products/:productId'].some(route => 
+    location.pathname.startsWith(route)
+  ) || /^\/products\/.+$/.test(location.pathname);
+
+  const showFooter = ['/', '/materials', '/about', '/contact','/products/:productId'].some((route) =>
+    location.pathname.startsWith(route)
+  ) || /^\/products\/.+$/.test(location.pathname); // Include dynamic product routes
+
 
   return (
     <div>
       {/* Conditionally render Navbar */}
-      {NavbarRoutes.includes(location.pathname) && <Navbar />}
+      {showNavbar && <Navbar />}
       <SearchBar />
 
       {/* Home Page without layout constraints */}
@@ -51,7 +57,7 @@ const App = () => {
       )}
       
       {/* Conditionally render Footer */}
-      {FooterRoutes.includes(location.pathname) && <Footer />}
+      {showFooter && <Footer />}
     </div>
   );
 };

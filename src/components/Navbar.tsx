@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";  // Importing navigation components from react-router-dom
 import { assets } from "../assets/assets";  // Importing assets (images/icons)
 import { motion, AnimatePresence } from "framer-motion";  // Importing Framer Motion for animations
-import { ShopContext } from '../context/ShopContext'; 
+import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);  // State to manage the visibility of the mobile menu
@@ -71,13 +71,13 @@ const Navbar = () => {
                   {text}
                 </motion.p>
 
-                {/* Conditionally render an underline when the link is active */}
-                {window.location.pathname === (text.toLowerCase() === "home" ? "/" : `/${text.toLowerCase()}`) && (
-                  <hr className="absolute bottom-0 left-0 w-full h-[2px] bg-gray-700 transition-all duration-300" />
-                )}
+                   {window.location.pathname === (text.toLowerCase() === "home" ? "/" : `/${text.toLowerCase()}`) && (
+  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-200 via-gray-400 to-gray-900 transition-all duration-300" />
+)}
               </NavLink>
             ))}
           </motion.ul>
+          
 
           {/* Icons and buttons */}
           <div className="flex items-center gap-6 justify-between">
@@ -86,7 +86,7 @@ const Navbar = () => {
               onClick={() => setShowSearch(true)}  // Show the search bar on click
               src={assets.search_icon}  // Search icon
               alt="Search Icon"
-              className={`w-7 cursor-pointer`}
+              className="w-7 cursor-pointer"
               animate={{ opacity: 0.8 }}  // Fade-in effect
               transition={{ duration: 0.5 }}  // Smooth transition
             />
