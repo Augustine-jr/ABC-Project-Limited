@@ -72,7 +72,7 @@ const Navbar = () => {
                 </motion.p>
 
                    {window.location.pathname === (text.toLowerCase() === "home" ? "/" : `/${text.toLowerCase()}`) && (
-  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-gray-200 via-gray-400 to-gray-900 transition-all duration-300" />
+  <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#ebe6d7] via-[#d1c7a3] to-[#645832] transition-all duration-300" />
 )}
               </NavLink>
             ))}

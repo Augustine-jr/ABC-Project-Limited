@@ -6,7 +6,18 @@ export interface Product {
   price: number; // The price of the product
   bestseller?: boolean; // Optional flag to indicate if the product is a bestseller
   description: string; // Add this line to include the description property
-  sizes: string[]
+  sizes: string[];
+  oldPrice?: number;
+  discount: number; // Add this line
+  rating?: number;
+}
+
+export interface Review {
+  id: string;
+  userName: string;
+  rating: number;
+  comment: string;
+  date: string;
 }
 
 // Defining the structure of the ShopContext
