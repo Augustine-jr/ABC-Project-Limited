@@ -2,6 +2,8 @@
 import React, { createContext, ReactNode, useEffect, useState } from "react"; 
 import { products } from "../assets/assets";  // Import your products 
 import { ShopContextType, CartItems } from "../types"; // Import the context type and CartItems
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -28,7 +30,21 @@ export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ childre
   const [cartItems,setCartItems] = useState<CartItems>({});
 
 
+
   const addToCart = async (itemId: string, size: string) => {
+
+    if (!size) {
+      toast.error('Please select a size', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
        
     let cartData = structuredClone(cartItems)
 
