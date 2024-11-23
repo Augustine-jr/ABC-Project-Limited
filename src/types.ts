@@ -40,5 +40,5 @@ export interface ShopContextType {
     setShowSearch: (show: boolean) => void; // Add this line
      cartItems: CartItems;
   addToCart: (itemId: string, size: string) => void;
-  
+  getCartCount: () => number; // {{ edit_1 }} Added getCartCount to the type 
 }

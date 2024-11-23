@@ -9,7 +9,7 @@ const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);  // State to track the active state of the menu toggle
   const location = useLocation();  // Hook to get the current route location
 
-  const { setShowSearch } = useContext(ShopContext);  // Remove type assertion
+  const { setShowSearch, getCartCount } = useContext(ShopContext);  // Remove type assertion
 
   // Function to toggle the mobile menu's visibility and manage body scroll
   const toggleMenu = () => {
@@ -121,7 +121,7 @@ const Navbar = () => {
               />
               {/* Cart item count */}
               <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-                10
+                {getCartCount()}
               </p>
             </Link>
 
