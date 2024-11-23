@@ -1,7 +1,9 @@
 // Importing necessary libraries and types
-import React, { createContext, ReactNode, useState } from "react"; 
+import React, { createContext, ReactNode, useEffect, useState } from "react"; 
 import { products } from "../assets/assets";  // Import your products 
-import { ShopContextType } from "../types"; // Import the context type
+import { ShopContextType, CartItems } from "../types"; // Import the context type and CartItems
+
+
 
 // Create the ShopContext with a default value to avoid 'undefined'
 export const ShopContext = createContext<ShopContextType>({
@@ -12,6 +14,8 @@ export const ShopContext = createContext<ShopContextType>({
   setSearch: () => {}, // Default: no-op function
   showSearch: false, // Default: search bar hidden
   setShowSearch: () => {}, // Default: no-op function
+  cartItems: {}, // Default: empty cart items
+  addToCart: () => {}, // Default: no-op function
 });
 
 // Creating the ShopContextProvider component to provide shop data to the app
@@ -21,6 +25,31 @@ export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ childre
   const delivery_fee = 10; // Delivery fee for shipping
   const [search,setSearch] = useState(''); // State for search query
   const [showSearch,setShowSearch] = useState(false); // State for showing or hiding search bar
+  const [cartItems,setCartItems] = useState<CartItems>({});
+
+
+  const addToCart = async (itemId: string, size: string) => {
+       
+    let cartData = structuredClone(cartItems)
+
+   if (cartData[itemId]) {
+    if (cartData[itemId][size]) {
+      cartData[itemId][size] += 1;
+    }
+    else {
+      cartData[itemId][size] = 1;
+    }
+   }
+   else {
+    cartData[itemId] = {}
+    cartData[itemId][size] = 1;
+   }
+    setCartItems(cartData);
+  }
+
+  useEffect(()=>{
+     console.log(cartItems);
+  },[cartItems])
 
   // Packaging all the important information into a value object
   const value: ShopContextType = {
@@ -30,7 +59,9 @@ export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ childre
     search, // The search query state
     setSearch, // Function to update the search query
     showSearch, // State for showing or hiding search bar
-    setShowSearch // Function to update the showSearch state
+    setShowSearch, // Function to update the showSearch state
+    cartItems, // Use the state variable instead of the type
+    addToCart, // Use the function directly
   };
 
   // Returning the context provider with the value

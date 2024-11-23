@@ -5,11 +5,12 @@ import { Product as ProductType, Review } from '../types';
 import StarRating from '../components/StarRating'; 
 import RelatedMaterials from '../components/RelatedMaterials';
 
-
+// I will add pagination for reviews
+// and by default the star icons are supposed to be gray then yellow when the user clicks it i will implement that too
 
 const Product = () => {
   const { productId } = useParams();
-  const { products, currency } = useContext(ShopContext);
+  const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState<ProductType | null>(null);
   const [image, setImage] = useState<string | null>(null);
   const [size, setSize] = useState<string | null>(null);
@@ -116,7 +117,10 @@ const Product = () => {
           </div>
 
           {/* Add to Cart Button */}
-          <button className='w-full sm:w-auto bg-[#645832] hover:bg-[#d1c7a3] text-white px-8 py-3 rounded-lg transition-colors'>
+          <button 
+            onClick={() => addToCart(productData._id, size || '')}
+            className='w-full sm:w-auto bg-[#645832] hover:bg-[#d1c7a3] text-white px-8 py-3 rounded-lg transition-colors'
+          >
             Add to Truck
           </button>
 

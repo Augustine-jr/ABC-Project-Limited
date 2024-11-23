@@ -58,8 +58,10 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: true
+        
     },
     {
         _id: "w002",
@@ -70,7 +72,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: true
     },
     {
@@ -82,7 +85,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: true
     },
     {
@@ -94,7 +98,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: true
     },
     {
@@ -106,7 +111,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: true
     },
     {
@@ -118,7 +124,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: true
     },
     {
@@ -130,7 +137,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -142,7 +150,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -154,7 +163,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -166,7 +176,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -178,7 +189,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -190,7 +202,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -202,7 +215,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -214,7 +228,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -226,7 +241,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -238,7 +254,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -250,7 +267,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -262,7 +280,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -274,7 +293,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -286,7 +306,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -298,7 +319,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -310,7 +332,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -322,7 +345,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -334,7 +358,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -346,7 +371,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -358,7 +384,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -370,7 +397,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
     {
@@ -382,7 +410,8 @@ export const products = [
         category: "",
         subCategory: "",
         sizes: [],
-        date: 4,
+        date: Date.now(),
+        discount: 10,
         bestseller: false
     },
 ]

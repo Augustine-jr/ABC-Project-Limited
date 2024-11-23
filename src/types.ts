@@ -7,6 +7,8 @@ export interface Product {
   bestseller?: boolean; // Optional flag to indicate if the product is a bestseller
   description: string; // Add this line to include the description property
   sizes: string[];
+  category: string;
+  subCategory: string;
   oldPrice?: number;
   discount: number; // Add this line
   rating?: number;
@@ -20,6 +22,13 @@ export interface Review {
   date: string;
 }
 
+// CartItems interface (for cart structure)
+export interface CartItems {
+  [itemId: string]: {
+    [size: string]: number; // Size as key, quantity as value
+  };
+}
+
 // Defining the structure of the ShopContext
 export interface ShopContextType {
   products: Product[]; // An array of products
@@ -29,4 +38,7 @@ export interface ShopContextType {
     setSearch: React.Dispatch<React.SetStateAction<string>>; // Added setSearch property
     showSearch: boolean; // Ensure showSearch is also included if not already
     setShowSearch: (show: boolean) => void; // Add this line
+     cartItems: CartItems;
+  addToCart: (itemId: string, size: string) => void;
+  
 }
