@@ -1,4 +1,3 @@
-
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Material from './pages/Material';
@@ -13,6 +12,8 @@ import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
+import { ToastContainer } from 'react-toastify';
+
 
 
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
       
       {/* Conditionally render Footer */}
       {showFooter && <Footer />}
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} />
     </div>
   );
 };

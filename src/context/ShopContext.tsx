@@ -2,7 +2,7 @@
 import React, { createContext, ReactNode, useCallback, useEffect, useState, useMemo} from "react"; 
 import { products } from "../assets/assets";  // Import your products 
 import { ShopContextType, CartItems } from "../types"; // Import the context type and  types
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -33,10 +33,10 @@ export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ childre
 // Function to add an item to the cart
 const addToCart = useCallback((itemId: string, size: string) => {
   // Check if the size is  provided
-        if (!size) {
+       /* if (!size) {
       toast.error("Please select a size");
       return;
-    }
+    } */
  
 // Update the cart by copying the previous cart and modifying it
   setCartItems((prevCartItems) => {
