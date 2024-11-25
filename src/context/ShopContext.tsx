@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 // Create the ShopContext with a default value to avoid 'undefined' when it's used before being provided
 export const ShopContext = createContext<ShopContextType>({
   products: [], // Default: empty product array
@@ -19,10 +18,14 @@ export const ShopContext = createContext<ShopContextType>({
   cartItems: {}, // Default: empty cart object
   addToCart: () => {}, // Default: no-op  for adding items to the cart
   getCartCount: () => 0, // Default: returns 0 when calculating the cart count
+  removeFromCart: () => {}, // Default: no-op for removing items from the cart
+  updateQuantity: () => {}, // Default: no-op for updating item quantity
+  getCartSubtotal: () => 0, // Default: returns 0 for cart subtotal
 });
 
 // Creating the ShopContextProvider component to provide shop data to the entire app
 export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  
   // Setting up important static information for the shop
   const currency = '₦'; // Currency symbol for the shop
   const delivery_fee = 10; // Delivery fee for shipping
@@ -61,6 +64,50 @@ const getCartCount = useCallback(() => {
   );
 }, [cartItems]); // Dependency on cartItems to recalculate the count when cart items change
 
+ const removeFromCart = useCallback((itemId: string, size: string) => {
+    setCartItems(prev => {
+      const newCart = { ...prev };
+      if (newCart[itemId] && newCart[itemId][size]) {
+        const { [size]: removed, ...remainingSizes } = newCart[itemId];
+        if (Object.keys(remainingSizes).length === 0) {
+          const { [itemId]: removedItem, ...remainingItems } = newCart;
+          return remainingItems;
+        }
+        newCart[itemId] = remainingSizes;
+      }
+      return newCart;
+    });
+  }, []);
+
+  const updateQuantity = useCallback((itemId: string, size: string, quantity: number) => {
+    setCartItems(prev => {
+      const newCart = { ...prev };
+      if (!newCart[itemId]) newCart[itemId] = {};
+      if (quantity <= 0) {
+        const { [size]: removed, ...remainingSizes } = newCart[itemId];
+        if (Object.keys(remainingSizes).length === 0) {
+          const { [itemId]: removedItem, ...remainingItems } = newCart;
+          return remainingItems;
+        }
+        newCart[itemId] = remainingSizes;
+      } else {
+        newCart[itemId][size] = quantity;
+      }
+      return newCart;
+    });
+  }, []);
+
+  const getCartSubtotal = useCallback(() => {
+    return Object.entries(cartItems).reduce((total, [itemId, sizes]) => {
+      const product = products.find(p => p._id === itemId);
+      if (!product) return total;
+      
+      return total + Object.values(sizes).reduce((itemTotal, quantity) => {
+        return itemTotal + (product.price * quantity);
+      }, 0);
+    }, 0);
+  }, [cartItems, products]);
+
 // Memoize the context value to avoid unnecessary re-renders of consumers
 const value = useMemo(
   () => ({
@@ -74,8 +121,11 @@ const value = useMemo(
     cartItems, // Cart items object
     addToCart, // function to add items to the cart
     getCartCount, // function to get the total cart count
+      removeFromCart,
+    updateQuantity,
+    getCartSubtotal
   }),
-  [products, currency, delivery_fee, search, showSearch, cartItems, addToCart, getCartCount] // Re-memoize whenever any of these dependencies change
+  [products, currency, delivery_fee, search, showSearch, cartItems, addToCart, getCartCount, removeFromCart, updateQuantity, getCartSubtotal] // Re-memoize whenever any of these dependencies change
 );
 
 // Returning the context provider with the value, which will be available to all components inside the provider

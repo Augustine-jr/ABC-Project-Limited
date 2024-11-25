@@ -41,4 +41,7 @@ export interface ShopContextType {
      cartItems: CartItems;
   addToCart: (itemId: string, size: string) => void;
   getCartCount: () => number; // {{ edit_1 }} Added getCartCount to the type 
+   removeFromCart: (itemId: string, size: string) => void;
+  updateQuantity: (itemId: string, size: string, quantity: number) => void;
+  getCartSubtotal: () => number;
 }
