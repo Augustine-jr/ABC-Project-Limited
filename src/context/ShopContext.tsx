@@ -2,7 +2,6 @@
 import React, { createContext, ReactNode, useCallback, useEffect, useState, useMemo} from "react"; 
 import { products } from "../assets/assets";  // Import your products 
 import { ShopContextType, CartItems } from "../types"; // Import the context type and  types
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -31,7 +30,30 @@ export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ childre
   const delivery_fee = 10; // Delivery fee for shipping
   const [search,setSearch] = useState(''); // State for search query
   const [showSearch,setShowSearch] = useState(false); // State to control the visibility of the 
-  const [cartItems,setCartItems] = useState<CartItems>({}); // State to store cart items (object format)
+  
+
+  // Initialize cart from localStorage
+const loadCartFromLocalStorage = () => {
+  // Try to get the 'cart' item from localStorage
+  const storedCart = localStorage.getItem('cart'); 
+
+  // If 'cart' exists in localStorage, parse it into an object and return it
+  // Otherwise, return an empty object (no cart found)
+  return storedCart ? JSON.parse(storedCart) : {}; 
+};
+
+// Set the initial state of cartItems from localStorage (or empty object)
+const [cartItems, setCartItems] = useState<CartItems>(loadCartFromLocalStorage);
+
+// Effect to save cartItems to localStorage whenever cartItems change
+useEffect(() => {
+  // Check if there are any cartItems to save
+  if (cartItems) {
+    // Convert the cartItems object to a string and save it to localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems)); 
+  }
+}, [cartItems]); // Re-run this effect every time cartItems change
+
 
 // Function to add an item to the cart
 const addToCart = useCallback((itemId: string, size: string) => {
