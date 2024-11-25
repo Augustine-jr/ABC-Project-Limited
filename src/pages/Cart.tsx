@@ -182,7 +182,7 @@ const Cart = () => {
             
             {/* Checkout Button */}
             <button
-              onClick={() => navigate('/checkout')} // Navigate to the checkout page
+              onClick={() => navigate('/place-order')} // Navigate to the checkout page
               className="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors mt-6"
             >
               Proceed to Checkout
