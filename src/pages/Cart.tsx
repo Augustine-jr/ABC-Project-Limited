@@ -24,7 +24,7 @@ const Cart = () => {
 // - `cartItems`: current cart state (items, sizes, and quantities)
 // - `addToCart`, `removeFromCart`, `updateQuantity`: functions to manage the cart
 // - `getCartSubtotal`: calculates the subtotal price of items in the cart
-  const { products, currency, cartItems, addToCart, removeFromCart, updateQuantity, getCartSubtotal, navigate} = useContext(ShopContext);// to programmatically navigate to different pages
+  const { products, currency, cartItems, addToCart, removeFromCart, updateQuantity, getCartSubtotal, navigate} = useContext(ShopContext);
 
 
   // Generate an array of cart items from cartItems object
