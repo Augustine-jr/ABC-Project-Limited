@@ -46,3 +46,34 @@ export interface ShopContextType {
   getCartSubtotal: () => number;
   navigate: (path: string) => void; 
 }
+
+export enum OrderStatus {
+  AWAITING_CONFIRMATION = 'Awaiting Confirmation',
+  CONFIRMED = 'Confirmed',
+  CANCELLED = 'Cancelled',
+}
+
+export interface order {
+  id: string;
+  userId?: string;
+   cartItems: CartItems;
+  totalPrice: number;
+  deliveryFee: number;
+  status: OrderStatus;
+  customerDetails: {
+    name: string;
+    phone: string;
+    address: string;
+  };
+  createdAt: Date;
+  canceledReason?: string;
+}
+
+// Defining the structure of the OrderContext
+
+export interface OrderContextType {
+  orders: Order[];
+  submitOrder: (orderData: Omit<Order, 'id' | 'status' | 'createdAt'>) => Order;
+  cancelOrder: (orderId: string) => void;
+  getUserOrders: () => Order[];
+}
