@@ -3,6 +3,7 @@ import React, { createContext, ReactNode, useCallback, useEffect, useState, useM
 import { products } from "../assets/assets";  // Import your products 
 import { ShopContextType, CartItems } from "../types"; // Import the context type and  types
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 // Create the ShopContext with a default value to avoid 'undefined' when it's used before being provided
@@ -20,6 +21,7 @@ export const ShopContext = createContext<ShopContextType>({
   removeFromCart: () => {}, // Default: no-op for removing items from the cart
   updateQuantity: () => {}, // Default: no-op for updating item quantity
   getCartSubtotal: () => 0, // Default: returns 0 for cart subtotal
+  navigate: () => {}, // Default: no-op function for navigation
 });
 
 // Creating the ShopContextProvider component to provide shop data to the entire app
@@ -29,7 +31,9 @@ export const ShopContextProvider: React.FC<{ children: ReactNode }> = ({ childre
   const currency = '₦'; // Currency symbol for the shop
   const delivery_fee = 10; // Delivery fee for shipping
   const [search,setSearch] = useState(''); // State for search query
-  const [showSearch,setShowSearch] = useState(false); // State to control the visibility of the 
+  const [showSearch,setShowSearch] = useState(false); // State to control the visibility of the search bar
+  const navigate = useNavigate();
+
   
 
   // Initialize cart from localStorage
@@ -145,9 +149,10 @@ const value = useMemo(
     getCartCount, // function to get the total cart count
       removeFromCart,
     updateQuantity,
-    getCartSubtotal
+    getCartSubtotal,
+    navigate,
   }),
-  [products, currency, delivery_fee, search, showSearch, cartItems, addToCart, getCartCount, removeFromCart, updateQuantity, getCartSubtotal] // Re-memoize whenever any of these dependencies change
+  [products, currency, delivery_fee, search, showSearch, cartItems, addToCart, getCartCount, removeFromCart, updateQuantity, getCartSubtotal, navigate,] // Re-memoize whenever any of these dependencies change
 );
 
 // Returning the context provider with the value, which will be available to all components inside the provider

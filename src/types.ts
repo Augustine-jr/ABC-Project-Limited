@@ -44,4 +44,5 @@ export interface ShopContextType {
    removeFromCart: (itemId: string, size: string) => void;
   updateQuantity: (itemId: string, size: string, quantity: number) => void;
   getCartSubtotal: () => number;
+  navigate: (path: string) => void; 
 }
