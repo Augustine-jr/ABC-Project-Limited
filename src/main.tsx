@@ -3,13 +3,16 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import ShopContextProvider from './context/ShopContext'
+import { OrderProvider } from './context/OrderContext';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
-    <BrowserRouter>
+     <BrowserRouter>
       <ShopContextProvider>
-        <App />
+        <OrderProvider>
+          <App />
+        </OrderProvider>
       </ShopContextProvider>
     </BrowserRouter>
   )

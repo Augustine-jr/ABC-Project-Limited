@@ -1,11 +1,15 @@
 import React, { useState, useContext } from 'react';
 import { useForm, FieldValues } from 'react-hook-form'; 
 import { ShopContext } from '../context/ShopContext';
+import { OrderContext } from '../context/OrderContext';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const PlaceOrder = () => {
   // Consuming context to get shop-related data (cart Items, products, currency, etc.)
   const { cartItems, products, currency, getCartSubtotal, delivery_fee } = useContext(ShopContext);
+  const { submitOrder } = useContext(OrderContext);
+  const navigate = useNavigate();
 
   // Check if the cart is empty, if so, display a message to the user
   if (!Object.keys(cartItems).length) {
@@ -28,12 +32,34 @@ const PlaceOrder = () => {
   // Set up form handling with react hook form
   const { register, handleSubmit, formState: { errors } } = useForm();
 
- // Handle form submission when the order is placed
+ 
+    // Handle form submission
   const handlePlaceOrder = (data: FieldValues) => {
-    toast.success(`Order placed successfully!`);
-    console.log(data);  // This will log the form data when the order is placed
+    try {
+      // Submit the order
+      const newOrder = submitOrder({
+        cartItems,
+        totalPrice,
+        deliveryFee: delivery_fee,
+        customerDetails: {
+          name: data.name,
+          phone: data.phone,
+          address: data.address
+        }
+      });
+
+      // Show success toast
+      toast.success('Order placed successfully!');
+
+      // Navigate to orders page
+      navigate('/orders');
+    } catch (error) {
+      // Handle any errors during order submission
+      toast.error('Failed to place order. Please try again.');
+      console.error(error);
+    }
   };
-    
+
 
 
   return (

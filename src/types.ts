@@ -72,8 +72,8 @@ export interface order {
 // Defining the structure of the OrderContext
 
 export interface OrderContextType {
-  orders: Order[];
-  submitOrder: (orderData: Omit<Order, 'id' | 'status' | 'createdAt'>) => Order;
+  orders: order[];
+  submitOrder: (orderData: Omit<order, 'id' | 'status' | 'createdAt'>) => order;
   cancelOrder: (orderId: string) => void;
-  getUserOrders: () => Order[];
+  getUserOrders: () => order[];
 }
