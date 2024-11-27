@@ -47,33 +47,34 @@ export interface ShopContextType {
   navigate: (path: string) => void; 
 }
 
+// Enum to represent the different statuses an order can have
 export enum OrderStatus {
-  AWAITING_CONFIRMATION = 'Awaiting Confirmation',
-  CONFIRMED = 'Confirmed',
-  CANCELLED = 'Cancelled',
+  AWAITING_CONFIRMATION = 'Awaiting Confirmation', // Order is awaiting confirmationnfrom the seller
+  CONFIRMED = 'Confirmed', // Order has been confirmed by the seller
+  CANCELLED = 'Cancelled', // Order was cancelled
 }
 
+// Interface defining the structure of an order
 export interface order {
-  id: string;
-  userId?: string;
-   cartItems: CartItems;
-  totalPrice: number;
-  deliveryFee: number;
-  status: OrderStatus;
+  id: string; // Unique Identifier for the order
+  userId?: string; // Optional: ID of the user who placed the order
+   cartItems: CartItems; // Details of the items in the user's cart
+  totalPrice: number; // Total price of the order
+  deliveryFee: number; // Delivery fee for the order
+  status: OrderStatus; // Current status of the order (uses the OrderStatus enum)
   customerDetails: {
-    name: string;
-    phone: string;
-    address: string;
+    name: string; // Customer's name
+    phone: string;  // Customer's phone number
+    address: string; // Customer's address
   };
-  createdAt: Date;
-  canceledReason?: string;
+  createdAt: Date; // Date and time when the order was created
+  canceledReason?: string; // Optional: Reason for canceling the order
 }
 
-// Defining the structure of the OrderContext
-
+// Interface defining the structure of the OrderContext
 export interface OrderContextType {
-  orders: order[];
-  submitOrder: (orderData: Omit<order, 'id' | 'status' | 'createdAt'>) => order;
-  cancelOrder: (orderId: string) => void;
-  getUserOrders: () => order[];
+  orders: order[]; // Array of all Orders
+  submitOrder: (orderData: Omit<order, 'id' | 'status' | 'createdAt'>) => order; // Function to create a new Order
+  cancelOrder: (orderId: string) => void; // Function to cancel an Order by its ID
+  getUserOrders: () => order[]; // Function to get all orders for the current user
 }
