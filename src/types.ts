@@ -77,4 +77,5 @@ export interface OrderContextType {
   submitOrder: (orderData: Omit<order, 'id' | 'status' | 'createdAt'>) => order; // Function to create a new Order
   cancelOrder: (orderId: string) => void; // Function to cancel an Order by its ID
   getUserOrders: () => order[]; // Function to get all orders for the current user
+  clearCancelledOrders: () => void; // Function to clear all cancelled orders
 }

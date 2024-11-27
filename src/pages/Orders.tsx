@@ -1,33 +1,81 @@
 import React, { useContext, useState } from 'react';
 import { OrderContext } from '../context/OrderContext';
 import { OrderStatus } from '../types';
+import { Clock, CheckCircle, XCircle } from 'lucide-react';
 import  Button  from '../components/Button';
-import { 
-  Select, 
-  SelectContent, 
-  SelectItem, 
-  SelectTrigger, 
-  SelectValue 
-} from '../components/Select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/Select';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose, DialogOverlay } from '@radix-ui/react-dialog';
+
+
+// Type guard for status filter
+const isValidOrderStatus = (status: string): status is OrderStatus | 'ALL' => {
+  return status === 'ALL' || 
+         Object.values(OrderStatus).includes(status as OrderStatus);
+};
+
 
 const OrdersPage: React.FC = () => {
-  const { orders, cancelOrder } = useContext(OrderContext);
+  const { orders, cancelOrder, clearCancelledOrders } = useContext(OrderContext);
   const navigate = useNavigate();
   const [statusFilter, setStatusFilter] = useState<OrderStatus | 'ALL'>('ALL');
+  const [isDialogOpen, setDialogOpen] = useState(false); // Track dialog state
+
+  // Enhanced status filter with type safety
+  const handleStatusFilterChange = (value: string) => {
+    if (isValidOrderStatus(value)) {
+      setStatusFilter(value);
+      toast.info(`Filtered orders: ${value}`, {
+        position: "top-right",
+        autoClose: 2000,
+      });
+    }
+  };
 
   const filteredOrders = statusFilter === 'ALL' 
     ? orders 
     : orders.filter(order => order.status === statusFilter);
 
+      const hasCancelledOrders = orders.some(order => order.status === OrderStatus.CANCELLED);
+
+      // Status icon mapping
+  const getStatusIcon = (status: OrderStatus) => {
+    switch (status) {
+      case OrderStatus.AWAITING_CONFIRMATION:
+        return <Clock className="text-yellow-600" />;
+      case OrderStatus.CONFIRMED:
+        return <CheckCircle className="text-green-600" />;
+      case OrderStatus.CANCELLED:
+        return <XCircle className="text-red-600" />;
+    }
+  };
+
+
+     // Handle clearing cancelled orders
+  const handleClearCancelledOrders = () => {
+    setDialogOpen(true); // Open the dialog to confirm
+  };
+
+  const confirmClearCancelledOrders = () => {
+    clearCancelledOrders();
+    setDialogOpen(false); // Close the dialog
+  };
+
+    const cancelClearCancelledOrders = () => {
+    setDialogOpen(false); // Close the dialog
+  };
+
   return (
     <div className="container mx-auto p-6">
+      <ToastContainer />
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Your Orders</h1>
         <div className="flex items-center space-x-4">
           <Select 
             value={statusFilter} 
-            onValueChange={(value: string) => setStatusFilter(value as OrderStatus | 'ALL')}
+            onValueChange={handleStatusFilterChange}
           >
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Filter by Status" />
@@ -39,6 +87,15 @@ const OrdersPage: React.FC = () => {
               <SelectItem value={OrderStatus.CANCELLED}>Canceled</SelectItem>
             </SelectContent>
           </Select>
+           {hasCancelledOrders && (
+            <Button 
+              variant="destructive" 
+              size="sm"
+             onClick={handleClearCancelledOrders}
+            >
+              Clear Cancelled Orders
+            </Button>
+          )}
           <Button onClick={() => navigate('/')}>
             Back to Home
           </Button>
@@ -105,8 +162,29 @@ const OrdersPage: React.FC = () => {
           ))}
         </div>
       )}
+       {/* Dialog Component for Confirmation with Blur Effect */}
+      <Dialog open={isDialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="p-6 sm:max-w-md max-w-full bg-white rounded-lg">
+          <DialogTitle>Clear Cancelled Orders</DialogTitle>
+          <DialogDescription>Are you sure you want to clear all cancelled orders?</DialogDescription>
+
+          <div className="mt-4 flex justify-between">
+            <DialogClose asChild>
+              <button className="bg-red-500 text-white p-2 rounded" onClick={cancelClearCancelledOrders}>
+                Cancel
+              </button>
+            </DialogClose>
+            <DialogClose asChild>
+              <button className="bg-green-500 text-white p-2 rounded" onClick={confirmClearCancelledOrders}>
+                Confirm
+              </button>
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
+       
 
 export default OrdersPage;

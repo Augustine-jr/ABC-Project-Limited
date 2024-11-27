@@ -8,7 +8,8 @@ export const OrderContext = createContext<OrderContextType>({
   orders: [], // Default orders array is empty
   submitOrder: () => ({} as order), // Placeholder function to submit an order (does nothing for now)
   cancelOrder: () => {}, // Placeholder function to cancel an order (does nothing for now)
-  getUserOrders: () => [] // Placeholder function to get user orders (returns an empty array)
+  getUserOrders: () => [], // Placeholder function to get user orders (returns an empty array)
+  clearCancelledOrders: () => {}, // Change return type to void
 });
 
 // Creating the orderProvider componenet that will wrap the app and provide context
@@ -49,7 +50,7 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return newOrder; // Return the new order
   };
 
-  // Function to cancek  an order
+  // Function to cancel  an order
   const cancelOrder = (orderId: string) => {
     // Create a new list of orders where the canceled order is updated with a new status and reason
     const updatedOrders = orders.map(order => 
@@ -68,6 +69,13 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // TODO: Implement backend order cancellation (e.g., notify server)
   };
 
+  // Function to clear cancelled orders
+  const clearCancelledOrders = () => {
+    const updatedOrders = orders.filter(order => order.status !== OrderStatus.CANCELLED);
+    setOrders(updatedOrders);
+    localStorage.setItem('orders', JSON.stringify(updatedOrders)); // Update localStorage
+  }
+
   // Function to get all orders(returns the current list of orders)
   const getUserOrders = () => {
     return orders; // Simply return the current state of orders
@@ -78,7 +86,8 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     orders, // The current list of orders
     submitOrder, // Function to submit a new order
     cancelOrder, // Function to cancel an order
-    getUserOrders // function to get all user orders
+    getUserOrders, // function to get all user orders
+    clearCancelledOrders, // Function to clear cancelled orders
   }), [orders]); // only recompute when 'orders' changes
 
   // The OrderProvidercomponent will provide the context to all its child components
