@@ -111,7 +111,7 @@ const NewsLetterBox = () => {
 
   return (
     <div className='text-center pt-8 '>
-      <ToastContainer /> {/* Toast container to display success/error messages */}
+      <ToastContainer /> 
 
       <p className='text-lg sm:text-2xl md:text-3xl font-medium text-gray-800 pb-10'>
         Stay Updated with the Latest Building Materials and Offers
