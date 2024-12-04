@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'; 
 import { assets } from '../assets/assets';
 
-const Footer:  React.FC = () => { // Define Footer as a functional component
+const Footer:  React.FC = () => { 
 
   return (
     <div className='pt-20'>
