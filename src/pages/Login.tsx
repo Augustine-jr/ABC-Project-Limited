@@ -12,6 +12,14 @@ const Login = () => {
       {currentState === 'Login' ? '' : <input type='text' placeholder='Name' className='w-full px-3 py-2  border border-gray-800' required/>}
       <input type='email' placeholder='Email' className='w-full px-3 py-2  border border-gray-800' required/>
       <input type='password' placeholder='Password' className='w-full px-3 py-2  border border-gray-800' required/>
+      <div className='w-full flex justify-between text-sm mt-[-8px]'>
+        <p className='cursor-pointer'>Forgot your password?</p>
+        {
+          currentState === 'Login'
+          ? <p onClick={() => setCurrentState('Sign Up')} className='cursor-pointer'>Create account</p>
+          : <p onClick={() => setCurrentState('Login')}  className='cursor-pointer'>Login Here</p>
+        }
+      </div>
     </form>
   )
 }
