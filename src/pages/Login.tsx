@@ -137,7 +137,7 @@ const Login = () => {
         className={`bg-black text-white font-light px-8 py-2 mt-4 ${
           loading && 'opacity-50 cursor-not-allowed'
         }`}
-        whileHover={{ scale: 1.05 }} // Slightly enlarge button on hover.
+        whileHover={{ scale: 1.05 }} // Slightly enlarge button on hoverrr.
         whileTap={{ scale: 0.95 }}  // Slightly shrink button on click.
       >
         {loading ? 'Processing...' : currentState === 'Login' ? 'Sign In' : 'Sign Up'}
