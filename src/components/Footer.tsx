@@ -31,13 +31,6 @@ const Footer:  React.FC = () => {
     <a className="link link-hover">Contact</a>
   </nav>
   <nav>
-    <h6 className="footer-title">Payment Options</h6>
-          <div className="flex gap-4 flex-col">
-            <img src={assets.paystack_logo} alt="Paystack" className="w-20" />
-            <img src={assets.interswitch_logo} alt="interswitch" className="w-20" />
-          </div>
-  </nav>
-  <nav>
     <h6 className="footer-title">Contact Us</h6>
           <p>1234 Main Street, Lagos, Nigeria</p>
           <p>Phone: +234-123-4567</p>

@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';// `motion` and `Animate
 
 const Login = () => {
    // State to track whether the form is in "Sign Up" or "Login" mode.
-  const [currentState, setCurrentState] = useState('Sign Up');
+  const [currentState, setCurrentState] = useState('Login');
 
    // State to track whether the form is processing data (loading).
   const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ const Login = () => {
  return (
     <form
       onSubmit={onSubmitHandler} // Attach the submission handler to the form.
-      className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800"
+      className="flex flex-col items-center w-[90%] sm:max-w-96 m-auto mt-14 gap-4 text-gray-800 "
       // Flexbox for centering and styling the form.
     >
       <div className="inline-flex items-center gap-2 mb-4 mt-10">
@@ -77,7 +77,7 @@ const Login = () => {
               type="text"
               placeholder="Name"
               name="name" // Name used to identify the input field in the form data.
-              className="w-full px-3 py-2 border border-gray-800 mb-2"
+              className="w-full px-3 py-2 border bg-inherit border-[#d1c7a3] mb-2"
               required // Makes this field mandatory.
             />
           )}
@@ -85,7 +85,7 @@ const Login = () => {
             type="email"
             placeholder="Email"
             name="email"
-            className="w-full px-3 py-2 border border-gray-800 mb-2"
+            className="w-full px-3 py-2 border mb-2 bg-inherit border-[#d1c7a3]"
             required
           />
           <div className="relative w-full">
@@ -93,7 +93,7 @@ const Login = () => {
               type={showPassword ? 'text' : 'password'} // Toggle between text and password types.
               placeholder="Password"
               name="password"
-              className="w-full px-3 py-2 border border-gray-800"
+              className="w-full px-3 py-2 border bg-inherit border-[#d1c7a3]"
               required
             />
             {/* Button to toggle password visibility */}
